@@ -5,6 +5,9 @@
 \usepackage{array}
 \usepackage{graphicx}
 \usepackage{subfig}
+\usepackage{multirow}
+\usepackage{hyperref}
+\usepackage{url}
 % type user-defined commands here
 
 \begin{document}
@@ -53,7 +56,7 @@ A combination of joint angles and relative positions of certain features on the 
 \section{Codebook}
 
 \chapter{Experiment Analysis and Results}\label{sec:results}
-\section{First steps}\label{sec:underhmm}
+\section{Understanding HMMs in gesture recognition}
 The first step in the experiment was to understand how the HMM framework worked, a dimensioned feature vector was used for this purpose. A left-right linear HMM was used for each gesture, rather than for each gesture category. The codebook vectors were obtained manually. Table \ref{tab:manual} summarizes the results obtained from the various test runs. 
 
 The first type of test consisted of 70 gestures, 35 of which were used for training and 35 for training. We realized that the training sample is quite low, so a second round of tests  were conducted which consisted of 90 gestures, 35 were used for testing and 55 for training. Again a third round with even more training data was conducted, with 120 gestures in total, 85 for training and 35 for testing. From the table we can see that the total classified gestures improves as we increase the number of training samples. The number of correctly classified gestures also improves, but at a very low rate. To understand the low classification rate it was necessary to take a closer look at the framework.  
@@ -123,8 +126,8 @@ With this in mind, we plotted the postures in the pages listed for the fear gest
 
 We also make one final observation about the current architecture. Every gesture has a HMM associated with it even though it might be similar to an existing gesture that has already been trained. This does not pose a problem if every single gesture in the data set were unique. In our data set, the gestures that belong to the \texttt{angry} category are not all unique, many of the gestures are similar with small varitions. In a problem that invovles humans, whose features and expressions are varied, it is necessary to group up these variations in gestures under a single gesture. Thus, we consider training all unique and non-unique gestures that belong to the \texttt{angry} category under one HMM. If this HMM results in a high probability of a gesture occuring during testing, then it will be classified as \texttt{angry}. 
 
-\section{Dimensionless features}
-Section \ref{sec:underhmm} has given us important insights into how gesture recognition heavily depends on organizing the codebook pages. The second part of the experiment modified the HMM architecture such that smiliar gestures were categorized and trained under a single HMM. Thus for a dataset that contains four emotions (angry, fear, sad, and happy) four HMMs were created. 
+\section{Improving Performance}
+The initial experiments conducted above has given us important insights into how gesture recognition heavily depends on organizing the codebook pages. The second part of the experiment modified the HMM architecture such that smiliar gestures were categorized and trained under a single HMM. Thus for a dataset that contains four emotions (angry, fear, sad, and happy) four HMMs were created. 
      
 \begin{table*}[htbp]
 	\centering
@@ -141,30 +144,77 @@ Section \ref{sec:underhmm} has given us important insights into how gesture reco
 	\label{tab:dim3state}
 \end{table*}
 
-Table \ref{tab:dim3state}, displays the confusion matrix for one of the test runs that classified 98\% of the testing data, and 56\% of the testing data were classified correctly with high probability. The test run had a dataset of 192 gestures, 93 were used for training the HMMs, and 89 were used for testing. This test run used velocity feature vectors of the training and testing data, for codebook creation and template matching respectively. Note the classification rate is very high this is caused by the change in the HMM architecture from using one HMM for every gesture to one HMM for every emotion (were similar gestures are grouped together). This change resulted in having a sufficient amount of training data for each HMM, approximately 23 gestures were used to train each of the angry, fear, sad, and happy gestures. The confusion matrix allows us to identify areas where improvements can be made, we note that most of the  \texttt{fear} gesture is being misclassified as \texttt{angry}. The only property to control in a HMM model is the number of states associated with it. The results in table \ref{tab:dim3state} are for HMM models with three states (for each emotion). Table \ref{tab:dim4statefear} lists the confusion matrix for a table where the \texttt{angry}, \texttt{happy} and \texttt{sad} HMMs have three states and the \texttt{fear} HMM has four states.
-
-    10     3     0     3
-     8     8     6     5
-     4     2     7     7
-     3     1     0    20
-     
+Table \ref{tab:dim3state}, displays the confusion matrix for one of the test runs that classified 98\% of the testing data, and 56\% of the testing data were classified correctly with high probability. The test run had a dataset of 192 gestures, 93 were used for training the HMMs, and 89 were used for testing. This test run used velocity feature vectors of the training and testing data, for codebook creation and template matching respectively. Note the classification rate is very high this is caused by the change in the HMM architecture from using one HMM for every gesture to one HMM for every emotion (were similar gestures are grouped together). This change resulted in having a sufficient amount of training data for each HMM, approximately 23 gestures were used to train each of the angry, fear, sad, and happy gestures. The confusion matrix allows us to identify areas where improvements can be made, we note that most of the  \texttt{fear} gesture is being misclassified as \texttt{angry}. The only property to control in a HMM model is the number of states associated with it. The results in table \ref{tab:dim3state} are for HMM models with three states (for each emotion). Table \ref{tab:dim4statefear} lists the confusion matrix for a table where the \texttt{angry}, \texttt{happy} and \texttt{sad} HMMs have three states and the \texttt{fear} HMM has four states.   
 \begin{table*}[htbp]
 	\centering
 		\begin{tabular}{|l|c|c|c|c|}
 		\hline
              & Angry & Fear & Happy & Sad \\ \hline
-        Angry & 10     & 3    & 0     & 3   \\ \hline
-        Fear  & 8     & 8    & 6     & 5   \\ \hline
-        Happy & 4     & 2    & 7    & 7  \\ \hline
-        Sad   & 3     & 1    & 0     & 20  \\
+        Angry & 5     & 4    & 3     & 4   \\ \hline
+        Fear  & 5     & 9    & 9     & 4   \\ \hline
+        Happy & 1     & 4    & 9    & 6  \\ \hline
+        Sad   & 1     & 2    & 1     & 20  \\
 		\hline
 		\end{tabular}
 	\caption{Confusion matrix where fear HMM has 4-states.}
 	\label{tab:dim4statefear}
 \end{table*}
+We note that the classification of the \texttt{fear} emotion has improved slightly, but the classification of the \texttt{angry} emotion has dropped. Comparing table \ref{tab:dim3state} and \ref{tab:dim4statefear}, the classification of \texttt{happy} emotion has dropped and now the majority of the \texttt{fear} motions are also being classified as \texttt{happy}. We proceed by adding more training data to see if this has any effect. A caveat that needs to be noted here is that, if there are gestures that are unique to a particular emotion that were not being classified properly but now this gesture is in the training data, this gesture will not be tested for in the testing data. Thus, the results need to be interpreted with caution.
 
-     
-\section{Comments on Performance}
+\begin{table*}[htbp]
+	\centering
+		\begin{tabular}{|l|c|c|c|c|}
+		\hline
+             & Angry & Fear & Happy & Sad \\ \hline
+        Angry & 4     & 2    & 0     & 0   \\ \hline
+        Fear  & 0     & 5    & 2     & 1   \\ \hline
+        Happy & 1     & 0    & 4    & 2  \\ \hline
+        Sad   & 1     & 2    & 0     & 6  \\
+		\hline
+		\end{tabular}
+	\caption{Confusion matrix for 3-state HMMs with additional training data.}
+	\label{tab:dim3statmoredata}
+\end{table*}
+
+Table \ref{tab:dim3statmoredata} lists the confusion matrix for which there were 152 gestures for the training data, approximately 38 gestures for each emotion, and 30 gestures for the training data. With all the data being classified and a 63\% correct classification rate. With the caveat, that some unique gestures might not be in the testing data, in mind, we can say in general that higher training data improves the recognition rate of the HMMs. One scenario to think about is how do the classification rates change when only two of the emotions are trained and tested for.
+\begin{table*}[htbp]
+	\centering
+		\begin{tabular}{|l|c|c||c|r|}
+		\hline
+             & Angry & Happy & States & Recognition rate \\ \hline
+        Angry & 11     & 11    & 3   & \multirow{2}{*}{71\%} \\ 
+        Happy  & 2    & 24   & 4   &  \\ \hline
+		Angry & 15     & 7    & 3   & \multirow{2}{*}{78\%} \\ 
+        Happy  & 3    & 23   & 3   &  \\ \hline
+             & Angry & Sad & \multicolumn{2}{|c|}{}\\ \hline
+        Angry & 14     & 6    & 3   & \multirow{2}{*}{81\%} \\ 
+        Sad  & 1    & 20   & 3   &  \\ \hline
+		Angry & 18     & 2    & 3   & \multirow{2}{*}{83\%} \\ 
+        Sad  & 4    & 17   & 2   &  \\ \hline
+             & Angry & Fear & \multicolumn{2}{|c|}{}\\ \hline
+        Angry & 17     & 4    & 3   & \multirow{2}{*}{66\%} \\ 
+        Fear  & 10    & 12   & 3   &  \\ \hline\hline
+             & Fear & Happy & \multicolumn{2}{|c|}{}\\ \hline
+        Fear & 14     & 4    & 3   & \multirow{2}{*}{72\%} \\ 
+        Happy  & 8    & 20   & 3   &  \\ \hline
+		Fear & 11     & 7    & 2   & \multirow{2}{*}{74\%} \\ 
+        Happy  & 4    & 24   & 4   &  \\ \hline
+             & Fear & Sad & \multicolumn{2}{|c|}{}\\ \hline
+        Fear & 15     & 9    & 4   & \multirow{2}{*}{77\%} \\ 
+        Sad  & 0    & 21   & 3   &  \\ \hline
+		Fear & 19     & 5    & 4   & \multirow{2}{*}{85\%} \\ 
+        Sad  & 0    & 21   & 4   &  \\ \hline		\hline
+             & Sad & Happy & \multicolumn{2}{|c|}{}\\ \hline
+        Sad & 14     & 4    & 4   & \multirow{2}{*}{61\%} \\ 
+        Happy  & 2    & 13   & 4  &  \\ \hline
+		\end{tabular}
+	\caption{Confusion matrix for comparison agianst each emotion.}
+	\label{tab:dimemocomp}
+\end{table*}
+
+Table \ref{tab:dimemocomp} displays a confusion matrix, recognition rate and the number of states used for each emotion's HMM. We note that when comparing two emotions to each other an average of 15-20\% missclassification rate exists. Table \ref{tab:dimemocomp} also displays improvements on recognition rate when comparing some emotions, for example \texttt{fear} vs. \texttt{sad}. Training the HMMs with 4 states fear and 3 states for sad, a recognition rate of 77\% is achieved, but result is improved upon by training both HMMs with 4 states. Optimization of HMMs for states is an important step in improving the recognition rate. This property not only affects how well the respective gestures are classified (a sad gesture classfied as a sad emotion), but also how other gestures are classified against it (a fear gesture classified as a sad emotion). Improving a classification rate for one gesture might affect the classification rate of another gesture. Thus when one or more emotions are invovled, as in tables \ref{tab:dim4statefear} or \ref{tab:dim3statmoredata}, a balance of states between each individual HMM needs to be achieved.
+
+\section{Unacted data set}
 
 \chapter{Conclusion}\label{sec:conclusion}
 
