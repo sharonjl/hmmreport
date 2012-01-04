@@ -1,214 +1,176 @@
-%% Based on a TeXnicCenter-Template, which was
-%% created by Christoph Börensen
-%% and slightly modified by Tino Weinkauf.
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\documentclass[a4paper,12pt]{scrartcl} %This is a special class provided by the KOMA script, which does a lot of adjustments to adapt the standard LaTeX classes to european habits, change to [a4paper,12pt,twoside] for doublesided layout
-
-
-%########################### Preferences #################################
-
-
-% ******** vmargin settings *********
-\usepackage{vmargin} %This give you full control over the used page arae, it maybe not the idea od Latex to do so, but I wanted to reduce to amount of white space on the page
-\setpapersize{A4}
-\setmargins{3.5cm}%			%linker Rand, left edge
-					 {1.5cm}%     %oberer Rand, top edge
-           {14.7cm}%		%Textbreite, text width
-           {23.42cm}%   %Texthoehe, text hight
-           {14pt}%			%Kopfzeilenhöhe, header hight
-           {1cm}%   	  %Kopfzeilenabstand, header distance
-           {0pt}%				%Fußzeilenhoehe footer hight
-           {2cm}%    	  %Fusszeilenabstand, footer distance         
-
-% ********* Font definiton ************
-\usepackage{t1enc} % as usual
-\usepackage[latin1]{inputenc} % as usual
-\usepackage{times}		
-%\usepackage{mathptmx}  	%mathematical fonts for use with times, I encountered some problems using this package togather with pdftex, which I was not able to resolve
-
-% ********* Graphics definition *******
-\usepackage[pdftex]{graphicx} % required to import graphic files
-\usepackage{color} %allows to mark some entries in the tables with color
-\usepackage{eso-pic} % these two are required to add the little picture on top of every page
-\usepackage{everyshi} % these two are required to add the little picture on top of every page
-\renewcommand{\floatpagefraction}{0.7} %default:0.5 allows two big pictures on one page
-
-%********** Enybeling Hyperlinks *******
-\usepackage[pdfborder=000,pdftex=true]{hyperref}% this enables jumping from a reference and table of content in the pdf file to its target
-
-% ********* Table layout **************
-\usepackage{booktabs}	  	%design of table, has an excellent documentation
-%\usepackage{lscape}			%use this if you want to rotate the table together with the lines around the table
-
-% ********* Caption Layout ************
-\usepackage{ccaption} % allows special formating of the captions
-\captionnamefont{\bf\footnotesize\sffamily} % defines the font of the caption name (e.g. Figure: or Table:)
-\captiontitlefont{\footnotesize\sffamily} % defines the font of the caption text (same as above, but not bold)
-\setlength{\abovecaptionskip}{0mm} %lowers the distace of captions to the figure
-
-
-% ********* Header and Footer **********
-% This is something to play with forever. I use here the advanced settings of the KOMA script
-
-\usepackage{scrpage} %header and footer using the options for the KOMA script
-\renewcommand{\headfont}{\footnotesize\sffamily} % font for the header
-\renewcommand{\pnumfont}{\footnotesize\sffamily} % font for the pagenumbers
-
-%the following lines define the pagestyle for the main document
-\defpagestyle{cb}{%
-(\textwidth,0pt)% sets the border line above the header
-{\pagemark\hfill\headmark\hfill}% doublesided, left page
-{\hfill\headmark\hfill\pagemark}% doublesided, right page
-{\hfill\headmark\hfill\pagemark}%  onesided
-(\textwidth,1pt)}% sets the border line below the header
-%
-{(\textwidth,1pt)% sets the border line above the footer
-{{\it Federation Confidential}\hfill Chief O'Brian}% doublesided, left page
-{Chief O'Brian\hfill{\it Federation Confidential}}% doublesided, right page
-{Chief O'Brian\hfill{\it Federation Confidential}} % one sided printing
-(\textwidth,0pt)% sets the border line below the footer
-}
-
-%this defines the page style for the first pages: all empty
-\renewpagestyle{plain}%
-	{(\textwidth,0pt)%
-		{\hfill}{\hfill}{\hfill}%
-	(\textwidth,0pt)}%
-	{(\textwidth,0pt)%	
-		{\hfill}{\hfill}{\hfill}%
-	(\textwidth,0pt)}
-
-%********** Footnotes **********
-\renewcommand{\footnoterule}{\rule{5cm}{0.2mm} \vspace{0.3cm}} %increases the distance of footnotes from the text
-\deffootnote[1em]{1em}{1em}{\textsuperscript{\normalfont\thefootnotemark}} %some moe formattion on footnotes
-
-%################ End Preferences, Begin Document #####################
-
-\pagestyle{plain} % on headers or footers on the first page
+\documentclass[]{report}   % list options between brackets
+\usepackage{fullpage}
+\usepackage[top=0.75in, bottom=0.75in, left=1.25in, right=0.75in]{geometry}
+\usepackage{setspace}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{subfig}
+% type user-defined commands here
 
 \begin{document}
+\doublespacing
 
-\begin{center}
+\title{Using Hidden Markov Models\\ for \\Sequential Body Gesture Recognition}   % type title between braces
+\author{Sharon Lourduraj}         % type author(s) between braces
+\date{Dec 26, 2011}    % type date between braces
+\maketitle
 
-\begin{figure}[th]
-    \centering
-		%\includegraphics[width=10cm]{logo.jpg}
-	\label{fig:logo}
+\begin{abstract}
+  A brief introduction to \TeX\ and \LaTeX
+\end{abstract}
+
+\chapter{Introduction}             % chapter 1
+
+\chapter{Experiment Setup}           % chapter 2
+The experiments conducted can be categorized into two parts, experiments dependent on HMM topology variation, and experiments dependent on feature vector variations. Based on emperical evidence through the learning and discovery, that was invovled in implementing and running these experiments, it can be said that the HMM topology and feature vectors selected play a key role in the performance and accuracy of using any HMM. This chapter describes the varitions that were used in the experiments. The results of these experiments are discussed in chapter \ref{sec:results}.
+
+\section{HMM Topology}
+A HMM Topology describes how the various states could be related to one another. Mathematically, this is described by the probability distribution from one state to another. Keeping in mind the problem of recognizing body gestures while performing an activity, if we consider the gesture of being 'angry,' there are various transitions that a body goes through to exhibit an 'angry' gesture. Considering the simplest case of the 'angry' gesture from a T-posture. First the arms bend in toward the hips, the legs spread apart and finally the hands are rested on the hips, these sequence of states indicate that the person is exhibiting an angry posture. This is a linear progression of states. If the hand's rested on the hips before the legs are spread apart then the sequence of events most likely doesn't indicate the angry gesture. If one were to train a generic HMM to classify the angry gesture the probability distribution would force the HMM into a linear topology. The left-right linear topology is perfect for recognizing a gesture that is progressive in nature. There are various kinds of angry gestures. Consider an alternative where the hands bend in toward the hips, the legs spread apart, the left hand rests on the hips, while the right hand bent at the elbow points at someone or something. This gesture also represents a progressive left-right topology. Here we have two different gestures, but both indicate a form of angry gesture. With this distinction in mind we propose two different architectures for experimentation. 
+
+The first proposed architecture is to create a HMM for each distinct gesture (example: angry-1, angry-2,\ldots, fear-1, fear-2,\ldots,fear-n,\ldots), even though they might represent the same gesture category (example: angry, fear). In this architecture the system is able to distinguish between various forms of gestures, or the intensity of gestures, in the same gesture category. If someone is really angry they might point at someone and oscillate their hands toward them in short bursts. If someone is angry and disappointed, they might shrug the shoulders and throw their hands up in the air swiftly. The second proposed architecture is to create a HMM for each distinct gesture category only (angry, fear,\ldots). In this architecture many similar gestures are grouped together into a single category.
+
+\section{Feature Vector}
+Elbow angle, position of wrist, knee angle, angle at the hips, head tilt, are some of the data that one needs to assess to distinguish one gesture from another. Together, they form a feature vector. Having the right feature vector is essential in classifying and recognizing gestures. If one has a feature vector consisting of upper body joint positions alone, the accuracy of recognizing gestures that requires having information about the lower body point positions will be low. Likewise, the information in the feature vector is also important, a feature vector consisting of joint points and a feature vector consisting of joint angles might provide different recognition results.
+
+\subsection{Dimensioned Data}
+Dimensioned data provide a means to an end in understanding how the HMM framework works in classifying and recognizing sequence of patterns. In the experiments conducted the dimensioned data consisted of having 3D positions of various points of the human body. When these points are plotted for a single frame it is easy to visualize how the HMM framework works to recognize and classify gestures. Plotting a sequence of frames relay information about the gesture being performed. However, there are greater disadvantages to using dimensioned data in a classification and recognzition algorithm. This data might convery information visually to a human observer, but an algorithm sees no advantage in having dimensioned data. Infact, dimensioned data restricts the algorithm from performing equally well when the input data conveys the same gesture but is performed by a different actor. Different actors exhibit different dimensioned data for the same gesture, the actors height, length of arms, torso length, length of legs are all different. Though a human observer is able to filter out these data whilst trying to recognize the gesture being performed, an AI algorithm is unable to filter or transform this data in such a way that its recognition and classification is unaffected. Thus, the need for dimensionless data.
+
+\subsection{Dimensionless Data}
+Dimensionless data play and important role in machine learning, specifically in gesture recognition it allows data to be generalized for any actor regardless of their physical features. When we compare angry, fear, happy or sad gestures from one actor to another, they will be quite similar when dimesionless data is used. Dimensionless data represent temporal data of a geasture, such as velocity and acceleration of points on a human body, or of joints; essentially data that represents a state in time. Such data is difficult for a human observer to visulize and categorize efectively. Consider looking at the performance of a angry gesture. By observing the velocity of points on a human body one cannot classify the gesture being performed without the help of spatial data. However, this provides no challenge for a machine learning framework, since they will be trained to recognize gestures from this prespective. Below are the various dimensionless data sets used in the experiments.
+
+\subsubsection{Point Velocities}
+Point velocities are essentially velocity of data points on a human body at an instance in time. We realize that gestures are dependent on speed at which it is being performed. If someone ducks within a second, it can be said that they reacted to a dangerous situation. If they ducked slowly, they are most likely reacting to a neutral situation. Velocities convery such information to the machine learning framework in a dimensionless fashion.
+
+\subsubsection{Joint Angles}
+Angles are dimensionless, as they are relative to two bodies. If we take the eblow angle, that is the angle between the upper arm and forearm, regardless of the actor it will be the similar for a specific gesture. Joint angles though dimensionless are similar to spatial data, they do not convey motion data. 
+
+\subsubsection{Joint Angle Velocity}
+Simply put joint angle velocity convey motion data about joint angles.
+
+\subsubsection{Joint Angle and Relative Positions}
+A combination of joint angles and relative positions of certain features on the human body. 
+
+\section{Codebook}
+
+\chapter{Experiment Analysis and Results}\label{sec:results}
+\section{First steps}\label{sec:underhmm}
+The first step in the experiment was to understand how the HMM framework worked, a dimensioned feature vector was used for this purpose. A left-right linear HMM was used for each gesture, rather than for each gesture category. The codebook vectors were obtained manually. Table \ref{tab:manual} summarizes the results obtained from the various test runs. 
+
+The first type of test consisted of 70 gestures, 35 of which were used for training and 35 for training. We realized that the training sample is quite low, so a second round of tests  were conducted which consisted of 90 gestures, 35 were used for testing and 55 for training. Again a third round with even more training data was conducted, with 120 gestures in total, 85 for training and 35 for testing. From the table we can see that the total classified gestures improves as we increase the number of training samples. The number of correctly classified gestures also improves, but at a very low rate. To understand the low classification rate it was necessary to take a closer look at the framework.  
+\begin{table*}[htbp]
+	\centering
+		\begin{tabular}{|l|l|l|l|l|l|l|}
+		\hline
+		    			& Correctly Classified (\%) & Total Classified & Testing data & Training data & Total Gestures\\
+		\hline
+			Manual \#1	& 8	(22.8) 	& 10	& 35 &	35 &	70\\
+			Manual \#2	& 10 (28.5)	& 24 	& 35 & 	55 &	90\\
+			Manual \#3	& 11 (31.1)	& 31 	& 35 & 	85 &	120\\
+			K-means 	& 3 (8.5)	& 10	& 35 & 	55 &	90\\
+		\hline
+		\end{tabular}
+	\caption{Recognition}
+	\label{tab:manual}
+\end{table*}
+
+Whilst training a HMM for a specific gesture, the framework produces the sequence of observations listed in table \ref{tab:fearseq}, for one of the fear gestures. Each number corresponds to a page in the codebook, where the contents of the page is a single frame of data from the motion capture system. Thus, the frame in page 1 appears after the frame in page 23, similarly the frame in page 10 appears after the frame in page 1, so on. The HMM training algorithm trains a probabilitic model for such a pattern of observation, such that if the sequence in the pattern is altered the HMM would return a low probability for that sequence to appear.
+
+\begin{table*}[htbp]
+	\centering
+		\begin{tabular}{|l|*{18}{l|}}
+		\hline
+		 	Fear in Training	&28	&28	&28	&28	&28	&28	&28	&28	&14	&14	&14	&30	&30	&30	&30	\\ \hline
+		 	Fear in Testing		&21	&21	&21	&21	&21	&21	&10	&10	&10	&10	&10	&10	&20	&32	&33 \\ \hline
+			Angry in Training	&28	&28	&28	&21	&21	&21	&21	&21	&21	&21	&28	&28	&28	&28	&28 \\
+		\hline
+		\end{tabular}
+	\caption{Sequence of observations for an incorrectly classified fear gesture.}
+	\label{tab:fearseq}
+\end{table*}
+
+Now, we look at the the observation pattern for one of the fear gestures in the testing set that was missclassified as one of the angry gestures. When the pattern is compared against the fear gesture in the training set, it is very different. However, when we compare the pattern to an angry gesture in the training set, half the pattern matches a sequence of observations in the angry pattern. Though only the repitition of the number 21 in the angry gesture matches the fear gesture, the HMM classifies it as angry with a very high probability.
+
+\begin{table*}[htbp]
+	\centering
+		\begin{tabular}{|l|*{18}{l|}}
+		\hline
+		 	Angry in Training	&24	&24	&24	&24	&24	&24	&21	&21	&22	&22	&22	&22	&21	&21	&24	\\ \hline
+		 	Angry in Testing	&24	&24	&24	&24	&24	&21	&22	&22	&22	&22	&21	&23	&23	&24	&24	\\
+		\hline
+		\end{tabular}
+	\caption{Sequence of observations for a correctly classified angry gesture.}
+	\label{tab:angryseq}
+\end{table*}
+
+Table \ref{tab:angryseq} displays the observation pattern for a correctly classified angry gesture. Note the similarity of the patterns between the training angry gesture and the testing angry gesture. The HMM classified this as an angry gesture with a very high probability. From these tables we conclude that both, the observation that follows the current observation, and the repitition of the same observation in a sequence plays a key role in determining the outcome of a HMM.
+
+If one were to extract template frames from a training dataset of 90 gestures, approximately 1-2 template frames per gesture, we would have approximately 225 templates. This also means that our codebook has 135 pages. A large codebook means a larger training dataset is necessary to estimate a large observation probability matrix for our HMM. We quickly realize that many of the gestures share similar postures, a manual selection of templates ensured that the posture selection for codebook pages were unique in nature. Through observations and visual analysis we realized that in our experiments the problem lies in the creation of this codebook. Manual creation of the template frames though accurate was infeasible when the training data set became larger and larger. It was not as straight forward as selecting a few universal template for angry gestures, and use these templates to convert the training dataset into a sequence of observation patterns as in tables \ref{tab:fearseq} and \ref{tab:angryseq}. It was necessary to go through each training dataset to identify unique gestures, and extract frames from them to properly classify similar gestures. The training data itself contained new patterns that needed to be extracted. 
+
+We introduced a clustering algorithm to replace the manual codebook creation process. The \texttt{k}-means clustering algorithm, creates \texttt{n} clusters and groups similar data together in the \texttt{i}th cluster of the \texttt{n} clusters. The algorithm clusters similar data by calculating the distances of the centeroid of the given data, thus data that is closer to each other are grouped in the same cluster. Now, the codebook creation was simplified for a large dataset. Table \ref{tab:manual} lists the results of the test runs conducted after using the clustering algorithm for codebook creation. The results are not impressive at all, visual analysis of the codebook vectors and the observation patterns created for each posture tells us why. 
+
+Having a codebook that is as large as 225 pages, even for small variations between two similar gestures the observation sequences are widely different, as in the fear gesture in table \ref{tab:fearseq}. Consider the images in figures \ref{fig:similarcodebook}, they represnt figures from codebook pages 2, 11 and 18. Visually they are very similar to each other, however the k-means algorithm clusters them into different pages because of small variations that categorize these images as outliers, such as hip angle, position of wrist, head tilt, and spacing between the feet. These are very sublte from the figures, however the k-means algorithm picks up on these. 
+
+\begin{figure}[htbp]
+  \centering
+  \subfloat[Codebook Page 2]{\label{fig:page2}\includegraphics[width=0.30\textwidth]{kms-2.png}}\hfill
+  \subfloat[Codebook Page 11]{\label{fig:page11}\includegraphics[width=0.30\textwidth]{kms-11.png}}\hfill
+  \subfloat[Codebook Page 18]{\label{fig:page18}\includegraphics[width=0.30\textwidth]{kms-18.png}}\hfill
+  \caption{Similar codebook pages}
+  \label{fig:similarcodebook}
 \end{figure}
 
-\vspace{2cm}
+With this in mind, we plotted the postures in the pages listed for the fear gesture, from table \ref{tab:fearseq}; pages 21 and 28 were similar, and pages 14 and 10 were similar. The misclassification in the experiment is caused by such occurances, of similar postures being classified into different codebook pages. Similar postures are being categorized under different pages because of small variations in position of points on the human body in 3D-space. We suspect that the use of dimensioned feature vectors is causing this, so we proceed by using dimensionless feature vectors.
 
-% There might be better solutions for the title page, giving all distances and sizes manually was simply the easiest solution
+We also make one final observation about the current architecture. Every gesture has a HMM associated with it even though it might be similar to an existing gesture that has already been trained. This does not pose a problem if every single gesture in the data set were unique. In our data set, the gestures that belong to the \texttt{angry} category are not all unique, many of the gestures are similar with small varitions. In a problem that invovles humans, whose features and expressions are varied, it is necessary to group up these variations in gestures under a single gesture. Thus, we consider training all unique and non-unique gestures that belong to the \texttt{angry} category under one HMM. If this HMM results in a high probability of a gesture occuring during testing, then it will be classified as \texttt{angry}. 
 
-{\Huge\bf\sf Template for a }
+\section{Dimensionless features}
+Section \ref{sec:underhmm} has given us important insights into how gesture recognition heavily depends on organizing the codebook pages. The second part of the experiment modified the HMM architecture such that smiliar gestures were categorized and trained under a single HMM. Thus for a dataset that contains four emotions (angry, fear, sad, and happy) four HMMs were created. 
+     
+\begin{table*}[htbp]
+	\centering
+		\begin{tabular}{|l|c|c|c|c|}
+		\hline
+             & Angry & Fear & Happy & Sad \\ \hline
+        Angry & 13     & 2    & 0     & 1   \\ \hline
+        Fear  & 11     & 7    & 6     & 3   \\ \hline
+        Happy & 2     & 1    & 11    & 6  \\ \hline
+        Sad   & 3     & 1    & 1     & 19  \\
+		\hline
+		\end{tabular}
+	\caption{Confusion matrix for 3-state HMMs with velocity feature vectors.}
+	\label{tab:dim3state}
+\end{table*}
 
-\vspace{.5cm}
+Table \ref{tab:dim3state}, displays the confusion matrix for one of the test runs that classified 98\% of the testing data, and 56\% of the testing data were classified correctly with high probability. The test run had a dataset of 192 gestures, 93 were used for training the HMMs, and 89 were used for testing. This test run used velocity feature vectors of the training and testing data, for codebook creation and template matching respectively. Note the classification rate is very high this is caused by the change in the HMM architecture from using one HMM for every gesture to one HMM for every emotion (were similar gestures are grouped together). This change resulted in having a sufficient amount of training data for each HMM, approximately 23 gestures were used to train each of the angry, fear, sad, and happy gestures. The confusion matrix allows us to identify areas where improvements can be made, we note that most of the  \texttt{fear} gesture is being misclassified as \texttt{angry}. The only property to control in a HMM model is the number of states associated with it. The results in table \ref{tab:dim3state} are for HMM models with three states (for each emotion). Table \ref{tab:dim4statefear} lists the confusion matrix for a table where the \texttt{angry}, \texttt{happy} and \texttt{sad} HMMs have three states and the \texttt{fear} HMM has four states.
 
-{\Huge\bf\sf Technical Report}
+    10     3     0     3
+     8     8     6     5
+     4     2     7     7
+     3     1     0    20
+     
+\begin{table*}[htbp]
+	\centering
+		\begin{tabular}{|l|c|c|c|c|}
+		\hline
+             & Angry & Fear & Happy & Sad \\ \hline
+        Angry & 10     & 3    & 0     & 3   \\ \hline
+        Fear  & 8     & 8    & 6     & 5   \\ \hline
+        Happy & 4     & 2    & 7    & 7  \\ \hline
+        Sad   & 3     & 1    & 0     & 20  \\
+		\hline
+		\end{tabular}
+	\caption{Confusion matrix where fear HMM has 4-states.}
+	\label{tab:dim4statefear}
+\end{table*}
 
-\vspace{.5cm}
+     
+\section{Comments on Performance}
 
-{\Huge\bf\sf to use with TeXnicCenter}
+\chapter{Conclusion}\label{sec:conclusion}
 
-\vspace{2cm}
-
-{\Large\bf\sf C. B{\"o}rensen}%as this is an english text I didn't load the german package, this would ease the use of special characters
-\vspace{2cm}
-
-{\Large\bf\sf \today} %adds the current date
-
-\vspace{\fill}
-
-cboerens@gmx.de
-
-\end{center}
-\newpage
-
-%%The following loads the picture on top of every page, the numbers in \put() define the position on the page:
-%\AddToShipoutPicture{\setlength\unitlength{0.1mm}\put(604,2522){\includegraphics[width=1.5cm]{logo.jpg}}}
-
-\pagestyle{cb} % now we want to have headers and footers
-
-\tableofcontents
-
-\newpage
-
-\section{Introduction}
-
-Mineral aerosol represents one of the largest mass fractions of the global aerosol. It consists of windblown soil and is produced mainly in the arid areas of our planet, in particular in the great deserts. Its annual production rate is estimated to be in the order of 200 to 5000 Tg. The smaller size fraction (< 20 $mu$m) may be transported over long distances  of up to 5000 km. Mineral aerosol has been considered a nonreactive, hydrophobic surface . Nevertheless, its impact on the atmospheric radiation budget and on the concentration of cloud condensation nuclei (CCN) have been discussed. Recently, its possible role as a surface for heterogeneous reactions has been taken into account. 
-\subsection{Modeling}
-For example, in a recent modeling study Dentener et. al.  calculated that in large areas more than 40\% of the total atmospheric nitrate is associated with mineral aerosol. However, their results still suffer from large uncertainties in the heterogeneous reaction rates. There is also evidence from field measurements for a correlation of the aerosol nitrate content and the aerosol mineral fraction. A correlation between the nitrate mass size distribution and the mineral aerosol distribution has also been reported . 
-\subsection{Composition}
-Mineral aerosol has a complex chemical and mineralogical composition  in which aluminum in the chemical form of alumosilicates contributes 8 \% by mass. For the present investigation alumina has been chosen as model substance. It has a defined chemical composition and mainly because of its relevance as supporting material for catalysts its surface features have been investigated by infrared spectroscopy, and ab initio calculations. Also, the heterogeneous reactions of CFC's with alumina produced by solid-fuel rocket engines have been discussed with regard to stratospheric ozone depletion .
-
-
-\section{Experimental}
-
-Vibrational spectra were recorded in the spectral range from 4000 to 600 cm?1 with a Bruker Equinox 55 FTIR Spectrometer equipped with an MCT detector and diffuse reflectance infrared Fourier transform spectroscopy optics (model DRA-2CO, Harrick Scientific Corp.). The vacuum chamber (model HVC-DR3, Harrick Scientific Corp.) was connected to a standard flow system (Figure 1). Spectra were recorded at a resolution of 4 cm$^{-1}$. 100 scans were averaged for each spectrum resulting in a time resolution of one minute. In order to improve the time resolution for experiments with high NO$_2$ concentrations during the initial phase only 50 scans were averaged.
-
-
-%\begin{landscape} %in case a table becomes to big this rotates it, uncheck also \end{landscape} and lscape package in the preferences
-	\begin{table}
-		\caption[Substrate matrix 1]{\rule[-2mm]{0mm}{0mm}{Physical properties of the tested substrate samples}}
-		\begin{tabular}{@{}*{8}l@{}} \toprule \addlinespace[0.1em]
-
-      No.  &  Supplier  &  Material  &    Sample  &    Length  &  Identifier  &      Mass  &       Mass \\
-
-           &            &            &            &       /cm  &              &      Mass  & /g$^{a)}$ \\
-
-\cmidrule{1-8} % &            &            &            &            &            &            &            \\
-
-         1 &        SST &     Galaxy &  warp unit &         15 &   \color{red}ncc1701e &     1927.6 &     1920.2 \\
-
-         2 &        SST & Constellat. &  warp unit &       14.9 &   11016910 &    ---     &    ---     \\
-
-         3 &        SST &  Prototype &        ops &         15 &  302/09     &    107.766 &    107.771 \\
-
-         4 &    KEmpire &        BoP &  warp unit &       15.1 &     c836f5 &    129.711 &    129.711 \\
-
-         5 &    KEmpire &        BoP &        ops &       15.3 &     c836f6 &     131.65 &    139.656 \\
-
-         6 &    KEmpire &  AC Mullite   &    core    &        3.2 &     c836f7 &      9.896 &      9.889 \\
-
-         7 &    REmpire &  Proptotye &       body &      ---   &   \color{blue}DHC 1703 &    ---     &    ---     \\
-
-         8 &    REmpire &  Proptotye &       body & {\it 15.2} &   DHC 1704 &    ---     &    ---     \\
-
-		\bottomrule
-		\multicolumn{8}{l}{{\footnotesize$^{a)}$After heat test at 2000°K for 5~h}}\\		
-	\end{tabular}
-	\label{tab:matrix_1}
-	\end{table}
-%\end{landscape}
-
-
-\section{Results}
-
-The results for the loss of weight are listed in table~\ref{tab:matrix_1} and in figure~\ref{fig:particle_size}.
-
-Mineral aerosol represents one of the largest mass fractions of the global aerosol. It consists of windblown soil and is produced mainly in the arid areas of our planet, in particular in the great deserts. Its annual production rate is estimated to be in the order of 200 to 5000 Tg. The smaller size fraction (< 20 $mu$m) may be transported over long distances  of up to 5000 km. Mineral aerosol has been considered a nonreactive, hydrophobic surface . Nevertheless, its impact on the atmospheric radiation budget and on the concentration of cloud condensation nuclei (CCN) have been discussed. Recently, its possible role as a surface for heterogeneous reactions has been taken into account. 
-
-\begin{figure}
-	\begin{center}
-		\includegraphics[width=13cm]{particle_size.pdf}
-	\end{center}
-	\caption{Particle size distribution for three different sources.}
-	\label{fig:particle_size}
-\end{figure}
-
-\subsection{Modeling Copy2}
-For example, in a recent modeling study Dentener et. al.  calculated that in large areas more than 40\% of the total atmospheric nitrate is associated with mineral aerosol. However, their results still suffer from large uncertainties in the heterogeneous reaction rates. There is also evidence from field measurements for a correlation of the aerosol nitrate content and the aerosol mineral fraction. A correlation between the nitrate mass size distribution and the mineral aerosol distribution has also been reported . 
-\subsubsection{Composition Copy2}
-Mineral aerosol has a complex chemical and mineralogical composition  in which aluminum in the chemical form of alumosilicates contributes 8 \% by mass. For the present investigation alumina has been chosen as model substance. It has a defined chemical composition and mainly because of its relevance as supporting material for catalysts its surface features have been investigated by infrared spectroscopy, and ab initio calculations. Also, the heterogeneous reactions of CFC's with alumina produced by solid-fuel rocket engines have been discussed with regard to stratospheric ozone depletion .
-
-Mineral aerosol represents one of the largest mass fractions of the global aerosol. It consists of windblown soil and is produced mainly in the arid areas of our planet, in particular in the great deserts. Its annual production rate is estimated to be in the order of 200 to 5000 Tg , , . The smaller size fraction (< 20 $mu$m) may be transported over long distances  of up to 5000 km. Mineral aerosol has been considered a nonreactive, hydrophobic surface . Nevertheless, its impact on the atmospheric radiation budget and on the concentration of cloud condensation nuclei (CCN) have been discussed. Recently, its possible role as a surface for heterogeneous reactions has been taken into account. 
-\subsection{Modeling Copy3}
-For example, in a recent modeling study Dentener et. al.  calculated that in large areas more than 40\% of the total atmospheric nitrate is associated with mineral aerosol. However, their results still suffer from large uncertainties in the heterogeneous reaction rates. There is also evidence from field measurements for a correlation of the aerosol nitrate content and the aerosol mineral fraction. A correlation between the nitrate mass size distribution and the mineral aerosol distribution has also been reported. 
-\subsubsection{Composition Cpoy3}
-Mineral aerosol has a complex chemical and mineralogical composition  in which aluminum in the chemical form of alumosilicates contributes 8 \% by mass. For the present investigation alumina has been chosen as model substance. It has a defined chemical composition and mainly because of its relevance as supporting material for catalysts its surface features have been investigated by infrared spectroscopy, and ab initio calculations. Also, the heterogeneous reactions of CFC's with alumina produced by solid-fuel rocket engines have been discussed with regard to stratospheric ozone depletion.
+\begin{thebibliography}{9}
+  % type bibliography here
+\end{thebibliography}
 
 \end{document}
-
-
 

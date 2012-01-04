@@ -3,7 +3,7 @@ Type=TeXnicCenterProjectSessionInformation
 Version=2
 
 [SessionInfo]
-ActiveTab=0
+ActiveTab=2
 FrameCount=1
 ActiveFrame=0
 
@@ -16,15 +16,15 @@ MinPos.x=-1
 MinPos.y=-1
 MaxPos.x=-8
 MaxPos.y=-30
-NormalPos.left=25
-NormalPos.top=25
-NormalPos.right=1089
-NormalPos.bottom=329
+NormalPos.left=50
+NormalPos.top=50
+NormalPos.right=1585
+NormalPos.bottom=451
 Class=CLatexEdit
 Document=hmmreport.tex
 
 [Frame0_Row0]
-cyCur=733
+cyCur=624
 cyMin=10
 
 [Frame0_Col0]
@@ -32,7 +32,7 @@ cxCur=1693
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=18
-Cursor.column=50
-TopSubLine=0
+Cursor.row=30
+Cursor.column=0
+TopSubLine=18
 
