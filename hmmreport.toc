@@ -1,7 +1,11 @@
-\contentsline {section}{\numberline {1}Introduction}{3}{section.1}
-\contentsline {subsection}{\numberline {1.1}Modeling}{3}{subsection.1.1}
-\contentsline {subsection}{\numberline {1.2}Composition}{3}{subsection.1.2}
-\contentsline {section}{\numberline {2}Experiments}{3}{section.2}
-\contentsline {subsection}{\numberline {2.1}HMM Topology}{3}{subsection.2.1}
-\contentsline {subsection}{\numberline {2.2}Feature Vector}{3}{subsection.2.2}
-\contentsline {section}{\numberline {3}Results}{3}{section.3}
+\contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}
+\contentsline {chapter}{\numberline {2}Gesture Recognition}{3}{chapter.2}
+\contentsline {section}{\numberline {2.1}The process}{3}{section.2.1}
+\contentsline {section}{\numberline {2.2}HMM Topology}{4}{section.2.2}
+\contentsline {section}{\numberline {2.3}Feature Vector}{5}{section.2.3}
+\contentsline {section}{\numberline {2.4}Datasets}{6}{section.2.4}
+\contentsline {chapter}{\numberline {3}Experiment Analysis and Results}{7}{chapter.3}
+\contentsline {section}{\numberline {3.1}Initial experiments}{7}{section.3.1}
+\contentsline {section}{\numberline {3.2}Improving performance}{10}{section.3.2}
+\contentsline {section}{\numberline {3.3}Unacted dataset}{12}{section.3.3}
+\contentsline {chapter}{\numberline {4}Conclusion}{14}{chapter.4}
