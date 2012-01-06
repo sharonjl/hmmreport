@@ -2,13 +2,14 @@
 \contentsline {section}{\numberline {1.1}Works consulted}{3}{section.1.1}
 \contentsline {section}{\numberline {1.2}Gesture Recognition with HMM}{4}{section.1.2}
 \contentsline {chapter}{\numberline {2}Framework Components}{7}{chapter.2}
-\contentsline {section}{\numberline {2.1}HMM Topology}{7}{section.2.1}
+\contentsline {section}{\numberline {2.1}HMM topology}{7}{section.2.1}
 \contentsline {section}{\numberline {2.2}Data sets}{8}{section.2.2}
-\contentsline {section}{\numberline {2.3}Feature Vector}{9}{section.2.3}
+\contentsline {section}{\numberline {2.3}Feature vector}{9}{section.2.3}
 \contentsline {section}{\numberline {2.4}Codebook}{11}{section.2.4}
+\contentsline {section}{\numberline {2.5}Future work}{12}{section.2.5}
 \contentsline {chapter}{\numberline {3}Experiment Results and Analysis}{13}{chapter.3}
 \contentsline {section}{\numberline {3.1}Initial discovery}{13}{section.3.1}
 \contentsline {section}{\numberline {3.2}Improving performance}{16}{section.3.2}
 \contentsline {section}{\numberline {3.3}Measured Performance}{18}{section.3.3}
-\contentsline {section}{\numberline {3.4}Unacted dataset}{18}{section.3.4}
+\contentsline {section}{\numberline {3.4}Unacted data set}{18}{section.3.4}
 \contentsline {chapter}{\numberline {4}Conclusion}{20}{chapter.4}
