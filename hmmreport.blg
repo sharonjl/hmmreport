@@ -1,5 +1,11 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: C:\Users\Sharon\Documents\Work\GestureRecog\hmmreport\hmmreport.aux
-I found no \citation commands---while reading file C:\Users\Sharon\Documents\Work\GestureRecog\hmmreport\hmmreport.aux
-I found no \bibdata command---while reading file C:\Users\Sharon\Documents\Work\GestureRecog\hmmreport\hmmreport.aux
-I found no \bibstyle command---while reading file C:\Users\Sharon\Documents\Work\GestureRecog\hmmreport\hmmreport.aux
-(There were 3 error messages)
+The style file: unsrtnat.bst
+Database file #1: biblio.bib
+Warning--entry type for "BBT06" isn't style-file defined
+--line 132 of file biblio.bib
+Warning--empty publisher in springerlink:10.1007/11492429_73
+Warning--empty year in Elgammal_gesturerecognition
+Warning--empty year in Elgammal_gesturerecognition
+Warning--empty year in Wu_vision-basedgesture
+Warning--empty year in Wu_vision-basedgesture
+(There were 6 warnings)

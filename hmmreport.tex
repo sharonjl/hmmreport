@@ -3,70 +3,190 @@
 \usepackage[top=0.75in, bottom=0.75in, left=1.25in, right=0.75in]{geometry}
 \usepackage{setspace}
 \usepackage{array}
-\usepackage{graphicx}
+\usepackage[pdftex]{graphicx}
 \usepackage{subfig}
 \usepackage{multirow}
 \usepackage{hyperref}
 \usepackage{url}
 \usepackage{titlesec}
+\usepackage{cite}
+\usepackage{booktabs}
+\usepackage[numbers]{natbib}
 % type user-defined commands here
 \titleformat{\chapter}[hang]{\bfseries\huge}{\thechapter.}{2pc}{}
 \begin{document}
 
 \doublespacing
 
-\title{Using Hidden Markov Models\\ for \\Sequential Body Gesture Recognition}   % type title between braces
-\author{Sharon Lourduraj}         % type author(s) between braces
-\date{Dec 26, 2011}    % type date between braces
+\title{Gesture recognition\\ in motion captured data \\using Hidden Markov Models\\\\\\}   % type title between braces
+\author{Sharon Lourduraj\\993833107\\\\M.Eng Report\\\\\\\\University of Toronto\\Mechanical and Industrial Engineering}         % type author(s) between braces
+\date{Jan 4, 2011}    % type date between braces
 \maketitle
 
 \begin{abstract}
-  A brief introduction to \TeX\ and \LaTeX
+Hidden Markov Models (HMMs) lend themselves well in a variety of applications that are dependent on spatio-temporal variability, gesture recognition is one such application. This report details the experimental process of constructing, and optimizing a HMM framework for gesture recognition. A gesture recognition rate of 63\% for an acted data set is achieved and a recognition rate of 60\% for an unacted data set is achieved. In the experiments, motion capture data is used as a primary means for posture tracking, than the traditional image sequences.
+
 \end{abstract}
 \tableofcontents
 \chapter{Introduction}             % chapter 1
+A human expressing a gesture through body language, goes through a sequence of observable postures. These observations can be discretized to extract a smaller subset of postures through which a gesture can be conveyed. Think of it as watching a movie. If we drop the frame-rate significantly we can still visually interpret the movie. The order in which each observation occurs is of importance, shifting the observation's order in the sequence would convey a completely different gesture. Expression of a gesture also varies from person to person, it also varies depending on the context that someone is experiencing.
 
-\chapter{Gesture Recognition}
-\section{The process}
-The first steps in the process is to collect the data for the gesture that needs to be trained or classified from a human actor using a motion capture system. For clarity we establish needed terms for this reprot. We call the data captured from the motion capture system a \texttt{gesture}, which is a specific instance of an \texttt{emotion}. One or more gestures might be similar to each other and they both fall under the same emotion. For example, being \texttt{angry} is an emotion, but one can show anger through various gestures. The data from the motion capture system is essentially a sequence of frames with motion capture data (angles, or position of body points in space). A \texttt{posture} is a specific frame in a gesture. Essentially, a gesture is made up of a sequence of postures.
+We introduce the problem of recognizing gestures from data obtained by a motion capture system. Many methods exists in recognizing gestures\cite{Yang_1994_329}, template-matching, dictionary lookup, statistical matching, neural networks, and ad hoc methods. Some techniques are widely applicable to various problems in gesture recognition while others are designed specifically to resolve a particular problem. Gesture recognition is considered to have stochastic properties\cite{Yang_1994_329}, as such a technique that uses the stochastic nature of the problem to its advantage would be of value.
 
-Once the motion capture gesture data is collected, feature vectors need to be extracted from the gesture. Feature vectors are extracted from a posture or across multiple postures. The feature, location of the actor's head can be extracted from the posture, while the velocity of the actor's head needs to be extracted across two 
-postures over time. A posture can have multiple features, combined they are called feature vectors. So for a gesture containing 500 frames (postures), 500 feature vectors can be derived. The dimension of a feature vector is dependent on the choice of the feature. Location of the actor's wrist has three dimensions in space, while the actor's elbom angle has only one dimension (the angle itself). This process is repeated for all the gestures captured.
+A Hidden Markov Model (HMM) is defined as a doubly stochastic process with an underlying stochastic process that is not observable (it is hidden), but can only be observed through another set of stochastic processes that produce the sequence of observed symbols\cite{1165342}. Being robust to adapt to spatio-temporal variability\cite{springerlink:10.1007/s00422-004-0516-0}, HMMs lend themselves well to the task of gesture recognition as gestures performed by humans are stochastic in nature. 
 
-Templates need to be extracted from these feature vectors. Templates are just a mechanism to group similar postures together. If someone is raising their hand, we can take three snapshots while the person is raising their hand. When their hand is at the initial position, when the hand moves half way up, and then the final position. Any intermediate snapshot is not necessary since, the three snapshots convery that the person is raising their hand. Thus, given a set of feature vectors we identify few templates from it. Note that templates from one gesture can be used in another gesture, hence template dataset is essentially a database of unique postures using which other gestures can be created. This introduce the idea of \texttt{codebook}, a synonym for a template database. We label each posture in the codebook with a unique number from $1\ldots n$, and one can refer to them with a \texttt{page number}.
+This report is an account of the experimental steps taken in using HMMs to recognize gestures in 3D motion captured data. For a full mathematical account of HMM, \citet{1165342} is a great source of information. The initial experiments focused on discovering the process involved in using HMMs to train and classify motion capture data. The later experiments focus on improving the performance of HMM to provide better results. Finally, we test the robustness of the HMM framework by using a different dataset than the one which was used to develop the framework.
 
-Consider a gesture and a codebook, we need to transform each posture in the gesture into a page number in the codebook. Thus rather than having a $n\times m$ matrix of postures and features, we have a $1\times m$ vector where each column corresponds to a page number in the codebook. Note that there is a loss of information in this transformation. The original gesture file contains accurate information about the gesture, while the codebook transformed version contains an approximate, hopefully sufficient, version of the gesture.
+\section*{Outline}
+We introduce the overall gesture recognition process using HMMs in section \ref{sec:overllprocess}. Chapter \ref{sec:fwc} outlines the main components of the process whose considerations are invaluable in making decisions to improve gesture recognition performance. Chapter \ref{sec:results} discusses the results of the experiments conducted, and analyzes the various pitfalls encountered in building a system to achieve a 63\% recongition rate.
 
-The concept of codebooks is necessary to work with HMMs, as HMMs are built around the concept of states and observations. A gesture can have many states depending on the complexity of the gesture. We consider the gestures to have three states, a starting state, a middle state and the end state. Between these states there are many hidden states that we are unaware of, the goal of HMM is to identify these states and provide a likelyhood estimation. A state can emit one or more observations. An observation is essentially an occurance of a posture. If we consider someone giving a wave, there are three distinct states we notice. The start state where the hands are relaxed, the middle state where the hands are bent in front of the person, and the final state where the person has their palm open and tilted about the wrist. Likewise, three distinct postures can be extracted from the wave gesture, and between these postures there are hidden states that an observer is unaware of. 
+\section{Works consulted}
+The purpose of the experiment was to implement and evaluate the use of HMMs to train and classify gestures in motion captured data. HMMs can be applied to any problem where spatio-temporal variability is of importance. As such, the implementation of HMM is straight forward besides the overhead in implementing the algorithms necessary to train the HMM, and calculate outcomes. This means that HMMs can virtually be applied to any domain; applications include speech recognition\cite{54527}, hand writing recognition\cite{541414}, data mining\cite{5602641}, image classification\cite{4379516}, and of course gesture recognition\cite{4154947}. 
 
-A HMM is trained by providing a sequence of observations, pagenumbers from the codebook. The training calculates the probability of a specific posture occuring given that previously a particular posture occured, in the given state. Similarly, for classification an observation sequence is provided to each train HMM, through which the likelyhood of an observation sequence can be calculated. The gesture is classified to fall under a particular HMMs emotion label if its likelyhood is higher than the HMMs of the other emotion labels.
+In almost all of the works the implementation of the HMM algorithm remains the same. The difference between the various works is that they innovate in the extraction of feature vectors from an acted gesture. \citet{Huang:2001:MHG:375397.375409} propose a feature extraction by a hybrid technique combining the spatial and the temporal information of each frame to extract the feature images. \citet{springerlink:10.1007/s00422-004-0516-0} introduce a technique of template matching to generate observation symbols using a Johansson display that encodes the motion of a moving person. \citet{799904} introduce a HMM-based threshold model that rejects input patterns which are recognized as non-gesture motions. \citet{Chen2003745} introduce a method to recognize continuous gestures with a stationary background. \citet{840674} extract features by tracking the skin-color blobs corresponding to the hand into a body-face space centered on the face of the user\cite{840674}. \citet{Rigoll98highperformance} propose feature vectors based on global motion features, extracted from each difference image of the image sequence. \citet{Pellegrini06humanposture} use stereo vision sensors to track posture, and then match against a 3D model of a human to extract feature vectors, such as hip angle, and knee angle. 
 
-The experiments conducted can be categorized into two parts, experiments dependent on HMM topology variation, and experiments dependent on feature vector variations. Based on emperical evidence through the learning and discovery, that was invovled in implementing and running these experiments, it can be said that the HMM topology and feature vectors selected play a key role in the performance and accuracy of using any HMM. This chapter describes the varitions that were used in the experiments. The results of these experiments are discussed in chapter \ref{sec:results}.
+Feature vectors improve the recognition accuracy of the HMM in a specific problem domain, works exist that show how HMM can be used in applications that use gesture recognition. \citet{4755984} demonstrate the application of imitating a human's motion by a humanoid through a motion capture system. They use a variation based on HMMs to learn, recognize and generate motion. \citet{Starner95visualrecognition} demonstrate how HMMs can be used to recognize American Sign Language. Similarly, codebook creation plays an important role as we discovered while performing the experiments. \citet{springerlink:10.1007/s00422-004-0516-0} and \citet{springerlink:10.1007/11492429_73} demonstrate  the use of template database as a codebook. While, \citet{Yang_1994_329} demonstrates a traditional approach of using k-means algorithm to cluster and quantize data into a codebook.
+
+The initial experiments were performed on the data set from \citet{Kleinsmith:2006:CDR:1221613.1222203}. And a final experiment was conducted on a different data set from \citet{KlEINSMITH_Bianchi-Berthouze_Steed_2011}. Though they employed neural networks as the machine learning framework to train and recognize gestures, their work was significant in understanding proper selection of feature vectors. They also detail the use of 3D motion capture data directly for affective posture recognition. Their works demonstrate how an emotion is conveyed by different cultures, and the various emotions that people portray when they are performing a task naturally. 
+
+The bibliography section of the report includes many more works that were consulted to gather knowledge about gesture recognition and HMMs in general.
+
+\section{Gesture Recognition with HMM}\label{sec:overllprocess}
+The first steps in the process is to collect the data for the gesture that needs to be trained or classified from a human actor using a motion capture system. For clarity we establish needed terms for this report. We call the data captured from the motion capture system a \texttt{gesture}, which is a specific instance of an \texttt{emotion}. One or more gestures might be similar to each other and they would both fall under the same emotion. For example, being \texttt{angry} is an emotion, but one can show anger through various gestures. The data from the motion capture system is essentially a sequence of frames with motion capture data (angles, or position of body points in space). A \texttt{posture} is a specific frame in a gesture. A gesture is made up of a sequence of postures, as shown in figure \ref{fig:fw1}.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics{fw1.pdf}
+	\caption{Gestures, postures and features from motion capture data.}
+	\label{fig:fw1}
+\end{figure}
+
+Once the motion capture gesture data is collected, feature vectors need to be extracted from the gesture. Feature vectors are extracted from a posture or across multiple postures. The feature, location of the actor's head can be extracted from the posture, while the velocity of the actor's head needs to be extracted across two postures over time. A posture can have multiple features, combined they are called feature vectors. So for a gesture containing 500 frames (postures), 500 feature vectors can be derived. The dimension of a feature vector is dependent on the choice of the features. Location of the actor's wrist has three dimensions in space, while the actor's elbow angle has only one dimension (the angle itself). This process is repeated for all the gestures captured.
+
+Templates need to be extracted from these feature vectors. Templates are just a mechanism to group similar postures together. If someone is raising their hand, we can take three snapshots while the person is raising their hand. When their hand is at the initial position, when the hand moves half way up, and then at the final position. Any intermediate snapshot is not necessary since, the three snapshots convey that the person is raising their hand. Thus, given a set of feature vectors we identify few templates from it. Note that templates from one gesture can be used in another gesture, hence the template dataset is essentially a database of unique postures. The existing postures in the template database can also be used to create other gestures, or variation of the particular gesture. This introduces the idea of a \texttt{codebook}, also a synonym for a template database. We label each posture in the codebook with a unique number from $1\ldots n$, and one can refer to them with a \texttt{page number}.
+
+Consider a gesture and a codebook, we need to transform each posture in the gesture into a page number in the codebook. Thus rather than having a $n\times m$ matrix of postures and features, we have a $1\times m$ vector where each column corresponds to a page number in the codebook. Note that there is a loss of information in this transformation. The original gesture file contains accurate information about the gesture, while the codebook transformed version contains an approximate, hopefully sufficient, version of the gesture. This $1\times m$ vector is known as an observation sequence, as shown in figure \ref{fig:fw2}.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=1.0\textwidth]{fw2.pdf}
+	\caption{Observation sequence of a gesture determined from a codebook.}
+	\label{fig:fw2}
+\end{figure}
+
+The concept of codebooks is necessary to work with HMMs, as HMMs are built around the concept of states and observations. A gesture can have many states depending on the complexity of the gesture. We consider the gestures to have three states, a starting state, a middle state and the end state. Between these states there are many hidden states that we are unaware of, the goal of HMM is to identify these hidden states through training. A state can emit one or more observations. An observation is essentially an occurrence of a posture. If we consider someone giving a wave, there are three distinct states we notice. The start state where the hands are relaxed, the middle state where the hands are bent in front of the person, and the final state where the person has their palm open and tilted about the wrist. We extracted three distinct postures from the wave gesture, and between these postures there are many hidden states, or transition states, that an observer is unaware of. 
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.90\textwidth]{fw3.pdf}
+	\caption{Classifying an observation sequence with multiple HMMs.}
+	\label{fig:fw3}
+\end{figure}
+
+A HMM is trained by providing a sequence of observations, page numbers from the codebook. The sequence of observations whose numbers (or symbols) correspond to the codebook does not have to be in a numerical order; the numerical symbol only identifies the location of the observation in the codebook. The training calculates the probability of a specific observation (posture) occurring given that, previously, a particular observation (posture) occurred, in the given state. Similarly, for classification, an observation sequence is provided to each trained HMM, through which the likelihood of an observation sequence is calculated. The gesture is classified to fall under a particular HMM's emotion label if its likelihood is higher than the HMMs of the other emotion labels, as shown in figure \ref{fig:fw3}.
+
+
+\chapter{Framework Components}\label{sec:fwc}
+Three principle components were considered when making decisions on improving performance and accuracy of the gesture recognition framework, HMM topology, feature vectors, and codebook selection. Based on empirical evidence through the learning and discovery, that was involved in implementing and running these experiments, it can be said that the HMM topology and feature vectors play a key role in the performance and accuracy of using any HMM. This chapter discusses some of the points that were considered when performing the experiments.
 
 \section{HMM Topology}
-A HMM Topology describes how the various states could be related to one another. Mathematically, this is described by the probability distribution from one state to another. Keeping in mind the problem of recognizing body gestures while performing an activity, if we consider the gesture of being 'angry,' there are various transitions that a body goes through to exhibit an 'angry' gesture. Considering the simplest case of the 'angry' gesture from a T-posture. First the arms bend in toward the hips, the legs spread apart and finally the hands are rested on the hips, these sequence of states indicate that the person is exhibiting an angry posture. This is a linear progression of states. If the hand's rested on the hips before the legs are spread apart then the sequence of events most likely doesn't indicate the angry gesture. If one were to train a generic HMM to classify the angry gesture the probability distribution would force the HMM into a linear topology. The left-right linear topology is perfect for recognizing a gesture that is progressive in nature. There are various kinds of angry gestures. Consider an alternative where the hands bend in toward the hips, the legs spread apart, the left hand rests on the hips, while the right hand bent at the elbow points at someone or something. This gesture also represents a progressive left-right topology. Here we have two different gestures, but both indicate a form of angry gesture. With this distinction in mind we propose two different architectures for experimentation. 
+A HMM Topology describes how the various states could be related to one another. Mathematically, this is described by the probability distribution from one state to another. Keeping in mind the problem of recognizing body gestures while performing an activity, if we consider the emotion of being \texttt{angry}, there are various transitions that a body goes through to exhibit an angry gesture.
 
-The first proposed architecture is to create a HMM for each distinct gesture (example: angry-1, angry-2,\ldots, fear-1, fear-2,\ldots,fear-n,\ldots), even though they might represent the same gesture category (example: angry, fear). In this architecture the system is able to distinguish between various forms of gestures, or the intensity of gestures, in the same gesture category. If someone is really angry they might point at someone and oscillate their hands toward them in short bursts. If someone is angry and disappointed, they might shrug the shoulders and throw their hands up in the air swiftly. The second proposed architecture is to create a HMM for each distinct gesture category only (angry, fear,\ldots). In this architecture many similar gestures are grouped together into a single category.
+Considering the simplest case of the angry gesture from a T-posture, first the arms bend in toward the hips, the legs spread apart and finally the hands rest on the hips. These sequence of states indicate that the person is an \texttt{angry} emotional state. This is a linear progression of states, a visualization is shown in figure \ref{fig:lineartopology}. The numbers in the figure indicate a posture from the respective codebook page, and the sequence of numbers combined together convey a specific gesture. If the hands are rested on the hips before the legs are spread apart then the sequence of events most likely does not indicate an angry emotion. If one were to train a generic HMM to classify the angry gesture the probability distribution would force the HMM into a linear topology. The left-right linear topology is perfect for recognizing a gesture that is progressive in nature. There are various kinds of angry gestures. Consider an alternative where the hands bend in toward the hips, the legs spread apart, the left hand rests on the hips, while the right hand bent at the elbow points at someone or something. This gesture also represents a progressive left-right topology. Here we have two different gestures, but both indicate a form of \texttt{angry} emotion. 
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=0.5\textwidth]{lineartopology.pdf}
+	\caption{A simple left to right linear HMM topology.}
+	\label{fig:lineartopology}
+\end{figure}
+
+In the first architecture, a HMM for each distinct gesture is created (example: angry-1, angry-2,\ldots, fear-1, fear-2,\ldots,fear-n,\ldots), even though they might represent the same emotion category (example: angry, fear). In this architecture the system is able to distinguish between various forms of gestures through which the same emotion can be identified. If someone is really angry they might point at someone and oscillate their hands toward them in short bursts. If someone is angry and disappointed, they might shrug the shoulders and throw their hands up in the air swiftly. 
+
+In the second architecture, we intend to create a HMM for each distinct emotion (angry, fear,\ldots). In this architecture many similar gestures are grouped together into a single emotion, and some gestures share similar observation sequences, as shown in \ref{fig:multitopology}.
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=1.0\textwidth]{multitopology.pdf}
+	\caption{A multi-tier HMM topology for an emotion.}
+	\label{fig:multitopology}
+\end{figure}
+
+\section{Data sets} 
+The framework was built by conducting experiments with the UCLIC Affective Posture and Body Motion Database created by Nadia Bianchi-Berthouze and Andrea Kleinsmith\cite{Kleinsmith:2006:CDR:1221613.1222203}. This database contained gestures performed by various actors displaying the \texttt{angry}, \texttt{fear}, \texttt{sad} and \texttt{happy} emotions. The database also captures the cross-cultural variations of the gestures. Each gesture in the database contains approximately 400-1200 frames of data capture. Only a few frames were selected, at equally spaced time intervals to help in loading and reading the data set. The frames contain position coordinates of the points on the actor's body that were tracked using a motion capture system. In each frame 47 3D position coordinates were extracted; examples, include location of left wrist, right wrist, left knee, right knee. 
+
+Once the initial framework was developed, and the performance fine tuned, it was decided that a test should be done on the robustness of the framework. So another data set was obtained from UCLIC Affective Posture and Body Motion Database however this data set contained non-acted\cite{KlEINSMITH_Bianchi-Berthouze_Steed_2011} motion capture data. In the non-acted data set the actors were not acting a specific emotion, rather they were asked to perform a task. Similar to the acted data set, a motion capture system captured the movements of the actor for later analysis. Whilst performing the task the actors expressed various emotions which were categorized into four groups\cite{KlEINSMITH_Bianchi-Berthouze_Steed_2011}: \textit{concentrating} (determined, focused, interested); \textit{defeated} (defeated, give up, sad), \textit{frustrated} (angry, frustrated), and \textit{triumphant} (content, excited, motivated, happy, victory). However, the data set was not labeled into the above categories when we received them, we classified the dataset manually with the following labels instead, \textit{positive}, \textit{negative} and \textit{neutral} emotions. Unlike the acted data set this data set contained Euler joint angles rather than position coordinates. The data set was converted to position coordinates, extracting 23 3D position coordinates on the actor's body. A single data capture in the data set contained approximately 15000-30000 frames, from these frames only a few hundred were extracted that contained a gesture being performed by the actor.
+
+
+\subsection*{Features in the data set}
+Table \ref{tab:datasetfeatures} lists the features that were recorded by the motion capture system in the data sets. Features can be added or removed as necessary to get better results. For example, developing a system that only uses recognizes upper body postures, we can remove features related to the lower body without affecting the results.
+
+% Table generated by Excel2LaTeX from sheet 'Sheet1'
+\begin{table*}[htbp]
+  \centering
+    \begin{tabular}{l|l}
+    \toprule
+    CSM File (Acted data set)  \\
+    \midrule
+    Left Front Head  & Left Front Waist  \\
+    Left Back Head  & Left Back Waist  \\
+    Right Back Head  & Right Back Waist  \\
+    Right Front Head  & Right Front Waist  \\
+    Top Chest  & Top of Spine  \\
+    Center Chest  & Middle of Back  \\
+    Left Outer Knee  & Right Outer Knee  \\
+    Left Inner Knee & Right Inner Knee \\
+    Left Outer Ankle  & Right Outer Ankle  \\
+    Left Heel & Right Heel \\
+    Left Outer Metatarsal  & Right Outer Metatarsal  \\
+    Left Inner Metatarsal & Right Inner Metatarsal \\
+    Left Toe  & Right Toe  \\
+    Left Shoulder  & Right Shoulder  \\
+    Left Outer Elbow  & Right Outer Elbow  \\
+    Left Inner Elbow & Right Inner Elbow \\
+    Left Wrist Stick End  & Right Wrist Stick End  \\
+    Left Wrist Stick Base  & Right Wrist Stick Base   \\
+    Left Wrist Inner near thumb & Right Wrist Inner near thumb \\
+    Left Wrist Outer opposite thumb & Right Wrist Outer opposite thumb  \\
+    Left Hand  & Right Hand  \\
+    \midrule
+    BVH File (Unacted data set)  \\
+	\midrule
+		Left Hip	&  Right Hip	\\
+		Left Knee&	Right Knee \\
+		Left Ankle & Right Ankle \\
+		Left Collar & Right Collar \\
+		Left Shoulder & Right Shoulder \\
+		Left Elbow & Right Elbow \\
+		Left Wrist & Right Wrist \\
+		Head & \\
+		Neck & \\
+	\bottomrule
+	\end{tabular}
+	\caption{Feature labels recorded in the motion capture data sets.}
+	\label{tab:datasetfeatures}
+\end{table*}
 
 \section{Feature Vector}
 Elbow angle, position of wrist, knee angle, angle at the hips, head tilt, are some of the data that one needs to assess to distinguish one gesture from another. Together, they form a feature vector. Having the right feature vector is essential in classifying and recognizing gestures. If one has a feature vector consisting of upper body joint positions alone, the accuracy of recognizing gestures that requires having information about the lower body point positions will be low. Likewise, the information in the feature vector is also important, a feature vector consisting of joint points and a feature vector consisting of joint angles might provide different recognition results.
 
-\subsection*{Dimensioned Data}
-Dimensioned data provide a means to an end in understanding how the HMM framework works in classifying and recognizing sequence of patterns. In the experiments conducted the dimensioned data consisted of having 3D positions of various points of the human body. When these points are plotted for a single frame it is easy to visualize how the HMM framework works to recognize and classify gestures. Plotting a sequence of frames relay information about the gesture being performed. However, there are greater disadvantages to using dimensioned data in a classification and recognzition algorithm. This data might convery information visually to a human observer, but an algorithm sees no advantage in having dimensioned data. Infact, dimensioned data restricts the algorithm from performing equally well when the input data conveys the same gesture but is performed by a different actor. Different actors exhibit different dimensioned data for the same gesture, the actors height, length of arms, torso length, length of legs are all different. Though a human observer is able to filter out these data whilst trying to recognize the gesture being performed, an AI algorithm is unable to filter or transform this data in such a way that its recognition and classification is unaffected. Thus, the need for dimensionless data.
+\subsection*{Dimensioned data}
+Dimensioned data provide a means to an end in understanding how the HMM framework works in classifying and recognizing sequence of patterns. In the experiments conducted the dimensioned data consisted of having 3D positions of various points of the human body. When these points are plotted for a single frame it is easy to visualize how the HMM framework works to recognize and classify gestures. Plotting a sequence of frames relay information about the gesture being performed. However, there are greater disadvantages to using dimensioned data in a classification and recognition algorithm. This data might convey information visually to a human observer, but an algorithm sees no advantage in having dimensioned data. In fact, dimensioned data restricts the algorithm from performing equally well when the input data conveys the same gesture but is performed by a different actor. Different actors exhibit different dimensioned data for the same gesture, the actors height, length of arms, length of legs are all different. Though a human observer is able to filter out these data when trying to recognize the gesture being performed, an AI algorithm is unable to filter or transform this data in such a way that its recognition and classification is unaffected. Thus, the need for dimensionless data.
 
-\subsection*{Dimensionless Data}
-Dimensionless data play and important role in machine learning, specifically in gesture recognition it allows data to be generalized for any actor regardless of their physical features. When we compare angry, fear, happy or sad gestures from one actor to another, they will be quite similar when dimesionless data is used. Dimensionless data represent temporal data of a geasture, such as velocity and acceleration of points on a human body, or of joints; essentially data that represents a state in time. Such data is difficult for a human observer to visulize and categorize efectively. Consider looking at the performance of a angry gesture. By observing the velocity of points on a human body one cannot classify the gesture being performed without the help of spatial data. However, this provides no challenge for a machine learning framework, since they will be trained to recognize gestures from this prespective. Below are the various dimensionless data sets used in the experiments.
+\subsection*{Dimensionless data}
+Dimensionless data play an important role in machine learning, specifically in gesture recognition, it allows data to be generalized for any actor regardless of their physical features. When we compare angry, fear, happy or sad gestures from one actor to another, they will be quite similar when dimensionless data is used. Dimensionless data represent temporal data of a gesture, such as velocity and acceleration of points on a human body, or of joints; essentially data that represents a state in time. Such data is difficult for a human observer to visualize and categorize effectively. Consider looking at the performance of an angry gesture. By observing the velocity of points on a human body one cannot classify the gesture being performed without the help of spatial data. However, this provides no challenge for a machine learning framework, since they will be trained to recognize gestures from this perspective. Point velocities are essentially velocity of data points on a human body at an instance in time. We realize that gestures are dependent on speed at which it is being performed. If someone ducks within a second, it can be said that they reacted to a dangerous situation. If they ducked slowly, they are most likely reacting to a neutral situation. 
 
-Point velocities are essentially velocity of data points on a human body at an instance in time. We realize that gestures are dependent on speed at which it is being performed. If someone ducks within a second, it can be said that they reacted to a dangerous situation. If they ducked slowly, they are most likely reacting to a neutral situation. Velocities convery such information to the machine learning framework in a dimensionless fashion. Angles are dimensionless, as they are relative to two bodies. If we take the eblow angle, that is the angle between the upper arm and forearm, regardless of the actor it will be similar for a specific gesture. Alternatively, a combination of joint angles and relative positions of certain features on the human body can also be employed. 
+\section{Codebook}
+Vector quantization plays an important role with any HMM framework, they are necessary to reduce the dimensionality of the feature vector. The generation of a codebook is a vector quantization process. The idea, is to take a feature vector and assess all possible ranges across which the feature can have values. Then, this range is quantized, divided into many parts, with some structure. For gesture recognition with motion capture data, two different codebooks techniques are considered in the experiments. Any feature vector considered for training, or classification, is converted into one of the codebook pages that best represent the feature vector.
 
-\section{Datasets} 
-Two datasets 
+The first codebook involves the selection of template postures from the training data. These postures were then saved in the template database, which is the codebook. This template matching technique is used by \citet{springerlink:10.1007/s00422-004-0516-0} and \citet{springerlink:10.1007/11492429_73}. An advantage to creating such a codebook is that the templates tend to be unique and of value, as it is most likely to be hand-picked by a human. The disadvantage is that if there is a large data set from which the templates need to be chosen from, it will be a tedious task.
 
-\chapter{Experiment Analysis and Results}\label{sec:results}
-\section{Initial experiments}
-The first step in the experiment was to understand how the HMM framework worked, a dimensioned feature vector was used for this purpose. A left-right linear HMM was used for each gesture, rather than for each gesture category. The codebook vectors were obtained manually. Table \ref{tab:manual} summarizes the results obtained from the various test runs. 
+The second codebook involves the use of the k-means clustering algorithm to group similar postures together, and these similar postures are put in the same cluster. The k-means algorithm is a common method used in the creation of codebook\cite{Yang_1994_329}. Thus, any gesture that has a posture where the actor is raising their hand would have the same codebook page for that posture. If the number of clusters is large, then variations of the same posture would be spread out, for a small cluster the variations would fall in the same cluster.
 
-The first type of test consisted of 70 gestures, 35 of which were used for training and 35 for training. We realized that the training sample is quite low, so a second round of tests  were conducted which consisted of 90 gestures, 35 were used for testing and 55 for training. Again a third round with even more training data was conducted, with 120 gestures in total, 85 for training and 35 for testing. From the table we can see that the total classified gestures improves as we increase the number of training samples. The number of correctly classified gestures also improves, but at a very low rate. To understand the low classification rate it was necessary to take a closer look at the framework.  
+\chapter{Experiment Results and Analysis}\label{sec:results}
+\section{Initial discovery}
+The first step in the experiment was to understand how the HMM framework worked, a dimensioned feature vector was used for this purpose. A left-right linear HMM was used for each gesture, as shown in figure \ref{fig:lineartopology}. The codebook vectors were obtained manually. Table \ref{tab:manual} summarizes the results obtained from the various test runs. These experiments used the acted and labeled data set from \citet{Kleinsmith:2006:CDR:1221613.1222203}.
+
+The first type of test consisted of 70 gestures, 35 of which were used for training and 35 for training. We realized that the training sample was quite low, so a second round of tests  were conducted which consisted of 90 gestures, 35 were used for testing and 55 for training. Again a third round with even more training data was conducted, with 120 gestures in total, 85 for training and 35 for testing. From the table we can see that the total classified gestures improves as we increase the number of training samples. The number of correctly classified gestures also improves, but at a very low rate. To understand the low classification rate it was necessary to take a closer look at the framework. 
 \begin{table*}[htbp]
 	\centering
 		\begin{tabular}{|l|l|l|l|l|l|l|}
@@ -83,7 +203,7 @@ The first type of test consisted of 70 gestures, 35 of which were used for train
 	\label{tab:manual}
 \end{table*}
 
-Whilst training a HMM for a specific gesture, the framework produces the sequence of observations listed in table \ref{tab:fearseq}, for one of the fear gestures. Each number corresponds to a page in the codebook, where the contents of the page is a single frame of data from the motion capture system. Thus, the frame in page 1 appears after the frame in page 23, similarly the frame in page 10 appears after the frame in page 1, so on. The HMM training algorithm trains a probabilitic model for such a pattern of observation, such that if the sequence in the pattern is altered the HMM would return a low probability for that sequence to appear.
+While training a HMM for a specific gesture, the framework produced the sequence of observations listed in table \ref{tab:fearseq} for one of the fear gestures. Each number corresponds to a page in the codebook, where the contents of the page is a single frame of data from the motion capture system. Thus, the frame in page 1 appears after the frame in page 23, similarly the frame in page 10 appears after the frame in page 1, so on. The HMM training algorithm trains a probabilistic model for such a pattern of observation, such that if the sequence in the pattern is altered the HMM would return a low probability for that sequence to appear.
 
 \begin{table*}[htbp]
 	\centering
@@ -98,7 +218,7 @@ Whilst training a HMM for a specific gesture, the framework produces the sequenc
 	\label{tab:fearseq}
 \end{table*}
 
-Now, we look at the the observation pattern for one of the fear gestures in the testing set that was missclassified as one of the angry gestures. When the pattern is compared against the fear gesture in the training set, it is very different. However, when we compare the pattern to an angry gesture in the training set, half the pattern matches a sequence of observations in the angry pattern. Though only the repitition of the number 21 in the angry gesture matches the fear gesture, the HMM classifies it as angry with a very high probability.
+Now, we look at the the observation pattern for one of the fear gestures in the testing set that was misclassified as one of the angry gestures. When the pattern is compared against the fear gesture in the training set, it is very different. However, when we compare the pattern to an angry gesture in the training set, half the pattern matches a sequence of observations in the angry pattern. Though only the repetition of the number 21 in the angry gesture matches the fear gesture, the HMM classifies it as angry with a very high probability.
 
 \begin{table*}[htbp]
 	\centering
@@ -112,13 +232,13 @@ Now, we look at the the observation pattern for one of the fear gestures in the 
 	\label{tab:angryseq}
 \end{table*}
 
-Table \ref{tab:angryseq} displays the observation pattern for a correctly classified angry gesture. Note the similarity of the patterns between the training angry gesture and the testing angry gesture. The HMM classified this as an angry gesture with a very high probability. From these tables we conclude that both, the observation that follows the current observation, and the repitition of the same observation in a sequence plays a key role in determining the outcome of a HMM.
+Table \ref{tab:angryseq} displays the observation pattern for a correctly classified angry gesture. Note the similarity of the patterns between the training angry gesture and the testing angry gesture. The HMM classified this as an angry gesture with a very high probability. From these tables we conclude that both, the observation that follows the current observation, and the repetition of the same observation in a sequence plays a key role in determining the outcome of a HMM.
 
 If one were to extract template frames from a training dataset of 90 gestures, approximately 1-2 template frames per gesture, we would have approximately 225 templates. This also means that our codebook has 135 pages. A large codebook means a larger training dataset is necessary to estimate a large observation probability matrix for our HMM. We quickly realize that many of the gestures share similar postures, a manual selection of templates ensured that the posture selection for codebook pages were unique in nature. Through observations and visual analysis we realized that in our experiments the problem lies in the creation of this codebook. Manual creation of the template frames though accurate was infeasible when the training data set became larger and larger. It was not as straight forward as selecting a few universal template for angry gestures, and use these templates to convert the training dataset into a sequence of observation patterns as in tables \ref{tab:fearseq} and \ref{tab:angryseq}. It was necessary to go through each training dataset to identify unique gestures, and extract frames from them to properly classify similar gestures. The training data itself contained new patterns that needed to be extracted. 
 
-We introduced a clustering algorithm to replace the manual codebook creation process. The \texttt{k}-means clustering algorithm, creates \texttt{n} clusters and groups similar data together in the \texttt{i}th cluster of the \texttt{n} clusters. The algorithm clusters similar data by calculating the distances of the centeroid of the given data, thus data that is closer to each other are grouped in the same cluster. Now, the codebook creation was simplified for a large dataset. Table \ref{tab:manual} lists the results of the test runs conducted after using the clustering algorithm for codebook creation. The results are not impressive at all, visual analysis of the codebook vectors and the observation patterns created for each posture tells us why. 
+We introduced a clustering algorithm to replace the manual codebook creation process. The \texttt{k}-means clustering algorithm, creates \texttt{n} clusters and groups similar data together in the \texttt{i}th cluster of the \texttt{n} clusters. The algorithm clusters similar data by calculating the distances of the centroid of the given data, thus data that is closer to each other are grouped in the same cluster. Now, the codebook creation was simplified for a large dataset. Table \ref{tab:manual} lists the results of the test runs conducted after using the clustering algorithm for codebook creation. The results are not impressive at all, visual analysis of the codebook vectors and the observation patterns created for each posture tells us why. 
 
-Having a codebook that is as large as 225 pages, even for small variations between two similar gestures the observation sequences are widely different, as in the fear gesture in table \ref{tab:fearseq}. Consider the images in figures \ref{fig:similarcodebook}, they represnt figures from codebook pages 2, 11 and 18. Visually they are very similar to each other, however the k-means algorithm clusters them into different pages because of small variations that categorize these images as outliers, such as hip angle, position of wrist, head tilt, and spacing between the feet. These are very sublte from the figures, however the k-means algorithm picks up on these. 
+Having a codebook that is as large as 225 pages, even for small variations between two similar gestures the observation sequences are widely different, as in the fear gesture in table \ref{tab:fearseq}. Consider the images in figures \ref{fig:similarcodebook}, they represent figures from codebook pages 2, 11 and 18. Visually they are very similar to each other, however the k-means algorithm clusters them into different pages because of small variations that categorize these images as outliers, such as hip angle, position of wrist, head tilt, and spacing between the feet. These are very subtle from the figures, however the k-means algorithm picks up on these. 
 
 \begin{figure}[htbp]
   \centering
@@ -129,12 +249,12 @@ Having a codebook that is as large as 225 pages, even for small variations betwe
   \label{fig:similarcodebook}
 \end{figure}
 
-With this in mind, we plotted the postures in the pages listed for the fear gesture, from table \ref{tab:fearseq}; pages 21 and 28 were similar, and pages 14 and 10 were similar. The misclassification in the experiment is caused by such occurances, of similar postures being classified into different codebook pages. Similar postures are being categorized under different pages because of small variations in position of points on the human body in 3D-space. We suspect that the use of dimensioned feature vectors is causing this, so we proceed by using dimensionless feature vectors.
+With this in mind, we plotted the postures in the pages listed for the fear gesture, from table \ref{tab:fearseq}; pages 21 and 28 were similar, and pages 14 and 10 were similar. The misclassification in the experiment is caused by such occurrences, of similar postures being classified into different codebook pages. Similar postures are being categorized under different pages because of small variations in position of points on the human body in 3D-space. We suspect that the use of dimensioned feature vectors is causing this, so we proceed by using dimensionless feature vectors.
 
-We also make one final observation about the current architecture. Every gesture has a HMM associated with it even though it might be similar to an existing gesture that has already been trained. This does not pose a problem if every single gesture in the data set were unique. In our data set, the gestures that belong to the \texttt{angry} category are not all unique, many of the gestures are similar with small varitions. In a problem that invovles humans, whose features and expressions are varied, it is necessary to group up these variations in gestures under a single gesture. Thus, we consider training all unique and non-unique gestures that belong to the \texttt{angry} category under one HMM. If this HMM results in a high probability of a gesture occuring during testing, then it will be classified as \texttt{angry}. 
+We also make one final observation about the current architecture. Every gesture has a HMM associated with it even though it might be similar to an existing gesture that has already been trained. This does not pose a problem if every single gesture in the data set were unique. In our data set, the gestures that belong to the \texttt{angry} category are not all unique, many of the gestures are similar with small variations. In a problem that involves humans, whose features and expressions are varied, it is necessary to group up these variations in gestures under a single gesture. Thus, we consider training all unique and non-unique gestures that belong to the \texttt{angry} category under one HMM. If this HMM results in a high probability of a gesture occurring during testing, then it will be classified as \texttt{angry}. This is a multi-tiered HMM topology as shown in figure \ref{fig:multitopology}.
 
 \section{Improving performance}
-The initial experiments conducted above has given us important insights into how gesture recognition heavily depends on organizing the codebook pages. The second part of the experiment modified the HMM architecture such that smiliar gestures were categorized and trained under a single HMM. Thus for a dataset that contains four emotions (angry, fear, sad, and happy) four HMMs were created. 
+The initial experiments conducted above has given us important insights into how gesture recognition heavily depends on organizing the codebook pages. The second part of the experiment modified the HMM architecture such that similar gestures were categorized and trained under a single HMM. Thus for a dataset that contains four emotions (angry, fear, sad, and happy) four HMMs were created. 
      
 \begin{table*}[htbp]
 	\centering
@@ -151,7 +271,7 @@ The initial experiments conducted above has given us important insights into how
 	\label{tab:dim3state}
 \end{table*}
 
-Table \ref{tab:dim3state}, displays the confusion matrix for one of the test runs that classified 98\% of the testing data, and 56\% of the testing data were classified correctly with high probability. The test run had a dataset of 192 gestures, 93 were used for training the HMMs, and 89 were used for testing. This test run used velocity feature vectors of the training and testing data, for codebook creation and template matching respectively. Note the classification rate is very high this is caused by the change in the HMM architecture from using one HMM for every gesture to one HMM for every emotion (were similar gestures are grouped together). This change resulted in having a sufficient amount of training data for each HMM, approximately 23 gestures were used to train each of the angry, fear, sad, and happy gestures. The confusion matrix allows us to identify areas where improvements can be made, we note that most of the  \texttt{fear} gesture is being misclassified as \texttt{angry}. The only property to control in a HMM model is the number of states associated with it. The results in table \ref{tab:dim3state} are for HMM models with three states (for each emotion). Table \ref{tab:dim4statefear} lists the confusion matrix for a table where the \texttt{angry}, \texttt{happy} and \texttt{sad} HMMs have three states and the \texttt{fear} HMM has four states.   
+Table \ref{tab:dim3state}, displays the confusion matrix for one of the test runs that classified 98\% of the testing data, and 56\% of the testing data were classified correctly with high probability. The test run had a dataset of 192 gestures, 93 were used for training the HMMs, and 89 were used for testing. This test run used velocity feature vectors of the training and testing data, for codebook creation and template matching respectively. Note the classification rate is very high, this is caused by the change in the HMM architecture from using one HMM for every gesture to one HMM for every emotion, where similar gestures are grouped together. This change resulted in having a sufficient amount of training data for each HMM, approximately 23 gestures were used to train each of the angry, fear, sad, and happy gestures. The confusion matrix allows us to identify areas where improvements can be made, we note that most of the  \texttt{fear} gesture is being misclassified as \texttt{angry}. The only property to control in a HMM model is the number of states associated with it. The results in table \ref{tab:dim3state} are for HMM models with three states (for each emotion). Table \ref{tab:dim4statefear} lists the confusion matrix for a table where the \texttt{angry}, \texttt{happy} and \texttt{sad} HMMs have three states and the \texttt{fear} HMM has four states.   
 \begin{table*}[htbp]
 	\centering
 		\begin{tabular}{|l|c|c|c|c|}
@@ -183,7 +303,7 @@ We note that the classification of the \texttt{fear} emotion has improved slight
 	\label{tab:dim3statmoredata}
 \end{table*}
 
-Table \ref{tab:dim3statmoredata} lists the confusion matrix for which there were 152 gestures for the training data, approximately 38 gestures for each emotion, and 30 gestures for the training data. With all the data being classified and a 63\% correct classification rate. With the caveat, that some unique gestures might not be in the testing data, in mind, we can say in general that higher training data improves the recognition rate of the HMMs. One scenario to think about is how do the classification rates change when only two of the emotions are trained and tested for.
+Table \ref{tab:dim3statmoredata} lists the confusion matrix for which there were 152 gestures for the training data, approximately 38 gestures for each emotion, and 30 gestures for the training data. All the data were classified and it achieved a 63\% correct classification rate. With the caveat, that some unique gestures might not be in the testing data, in mind, we can say in general that higher training data improves the recognition rate of the HMMs. One scenario to think about is how are the classification rates when only two of the emotions are trained and tested for.
 \begin{table*}[htbp]
 	\centering
 		\begin{tabular}{|l|c|c||c|r|}
@@ -215,14 +335,35 @@ Table \ref{tab:dim3statmoredata} lists the confusion matrix for which there were
         Sad & 14     & 4    & 4   & \multirow{2}{*}{61\%} \\ 
         Happy  & 2    & 13   & 4  &  \\ \hline
 		\end{tabular}
-	\caption{Confusion matrix for comparison agianst each emotion.}
+	\caption{Confusion matrix for comparison against each emotion.}
 	\label{tab:dimemocomp}
 \end{table*}
 
-Table \ref{tab:dimemocomp} displays a confusion matrix, recognition rate and the number of states used for each emotion's HMM. We note that when comparing two emotions to each other an average of 15-20\% missclassification rate exists. Table \ref{tab:dimemocomp} also displays improvements on recognition rate when comparing some emotions, for example \texttt{fear} vs. \texttt{sad}. Training the HMMs with 4 states fear and 3 states for sad, a recognition rate of 77\% is achieved, but result is improved upon by training both HMMs with 4 states. Optimization of HMMs for states is an important step in improving the recognition rate. This property not only affects how well the respective gestures are classified (a sad gesture classfied as a sad emotion), but also how other gestures are classified against it (a fear gesture classified as a sad emotion). Improving a classification rate for one gesture might affect the classification rate of another gesture. Thus when one or more emotions are invovled, as in tables \ref{tab:dim4statefear} or \ref{tab:dim3statmoredata}, a balance of states between each individual HMM needs to be achieved.
+Table \ref{tab:dimemocomp} displays a confusion matrix, recognition rate and the number of states used for each emotion's HMM. We note that when comparing two emotions to each other an average of 15-20\% misclassification rate exists. Table \ref{tab:dimemocomp} also displays improvements on recognition rate when comparing some emotions, for example \texttt{fear} vs. \texttt{sad}. Training the HMMs with 4 states fear and 3 states for sad, a recognition rate of 77\% is achieved, but result is improved upon by training both HMMs with 4 states. Optimization of HMMs for states is an important step in improving the recognition rate. This property not only affects how well the respective gestures are classified (a sad gesture classfied as a sad emotion), but also how other gestures are classified against it (a fear gesture classified as a sad emotion). Improving a classification rate for one gesture might affect the classification rate of another gesture. Thus when one or more emotions are involved, as in tables \ref{tab:dim4statefear} or \ref{tab:dim3statmoredata}, a balance of states between each individual HMM needs to be achieved.
+
+\section{Measured Performance}
+Table \ref{tab:timedperformance} displays the measured performance of the various components of the framework over time for two different training data sizes. In general, the training data size and the overhead seen are directly correlated.
+
+\begin{table*}[htbp]
+	\centering
+		\begin{tabular}{|l||r|r|r|}
+		\hline
+		Training Data Size  		& 10 & 90	& 152 \\ \hline
+        Feature Vector Extraction 	&	1.5s & 30.5s     & 44.2s    \\ \hline
+        Codebook (k-means)  		& 1s & 25.0s     & 61.2s    \\ \hline
+        HMM Training (total) 		&1s & 74.9s     & 37.6s    \\ \hline
+        HMM Recognition (total) 	& - & 1.4s     & 0.47 s    \\ \hline
+		\end{tabular}
+	\caption{Timed performance}
+	\label{tab:timedperformance}
+\end{table*}
+The overhead of the feature vector extraction process is linear in nature, and a straight forward process. It is reliant on the complexity of extracting specific features. The overhead of the codebook creation using the k-means algorithm depends on the structure, on the number of feature vectors, and the dimension of the feature vectors. There are works performed in the literature that employs faster techniques to k-means clustering. The overhead of the HMM training is the total training time for all four emotions. Individually, the training of each emotion depends on the observation sequence pattern and the rate of convergence of the HMM probability matrices. For a large training data set the training HMMs might converge faster than when a smaller data size is used as more training data is provided.  Though this relationship is not linear and not guaranteed. HMM recognition time is for the total testing data set, which was 93 and 30 for their respective training data set sizes of 90 and 152.
+
+The preprocessing, feature vector extraction, codebook creation and HMM training are \textit{one time} overheads, during the setup phase. When a single new data needs to be trained on top of the existing models, the overhead is very minimal. The performances were measured on a Intel i7, Quad Core CPU, with 8 GB memory.
+
 
 \section{Unacted dataset}
-The experiments that have been discussed until now were performed on an acted dataset, where the actor acting the gesture was asked to specifically demonstrate an emotion. A test was also run on an unacted data set, where the actor was asked to perform a task, during this task various emotions were extracted and classified. The idea was to capture the natural essensce of an emotion. To make sense of the emotions they were classified into three emotions, \texttt{positive}, \texttt{negative}, and \texttt{neutral}. A \texttt{positive} emotion can consists of happy, excited, or surprised, while a \texttt{negative} empotion consists of angry, fear, or sad. All other gestures were considered \texttt{neutral}. Even for a human observer it was difficult to label the dataset with one of the emotions, thus training a HMM to detect and recognize such gestures would be a test in robustness.
+The experiments that have been discussed until now were performed on an acted dataset, where the actor acting the gesture was asked to specifically demonstrate an emotion. A test was also run on an unacted data set from \citet{KlEINSMITH_Bianchi-Berthouze_Steed_2011}. In this data set the actor was asked to perform a task, during this task various emotions were extracted and classified. The idea was to capture the natural essence of an emotion. The gestures were classified into three categories, \texttt{positive}, \texttt{negative}, and \texttt{neutral}. A \texttt{positive} emotion consisted of content, excited, motivated, happy or victory gestures, while a \texttt{negative} emotion consisted of defeated, give up, sad, angry, and frustrated gestures. All other gestures were considered \texttt{neutral}. Even for a human observer it was difficult to label the data set with one of the emotions, thus training a HMM to detect and recognize such gestures would be a test in robustness.
 
 \begin{table*}[htbp]
 	\centering
@@ -250,16 +391,22 @@ From the tests performed on the acted data set, we see that a dimensionless velo
 	\caption{Confusion matrix for the unacted dataset.}
 	\label{tab:unactedconfuse2}
 \end{table*}
-A modified test was run to see how additional training data affects the classificaiton results; 49 gestures were used for training, and 15 were used for testing. Table \ref{tab:unactedconfuse2} displays the results of the test. We note that in both cases (tables \ref{tab:unactedconfuse} and \ref{tab:unactedconfuse2}) the \texttt{negative} emotion is performing poorly. The tests did not use a sufficient amount of gestures for training to conclude the reasons behind the missclassification concretely. 60\% of the testing data was classified correctly. Thus we see no improvement in adding more training data in this case, but an observation to note was that only 2 additional \texttt{negative} gestures were added to the training data in the modified test, as more \texttt{negative} gestures were unavailable.
 
-The purpose was these tests were to determine the robustness of the HMM framework for recognizing gestures under different circumstances (acted, or unacted). From the results above we can safely conclude that the HMMs are sufficiently robust to adapt to situations as long as sufficient training is provided.
+A modified test was run to see how additional training data affects the classification results; 49 gestures were used for training, and 15 were used for testing. Table \ref{tab:unactedconfuse2} displays the results of the test. We note that in both cases (tables \ref{tab:unactedconfuse} and \ref{tab:unactedconfuse2}) the \texttt{negative} emotion is performing poorly. The tests did not use a sufficient amount of gestures for training to conclude the reasons behind the misclassification concretely. 60\% of the testing data was classified correctly. Thus we see no improvement in adding more training data in this case, but an observation to note was that only 2 additional \texttt{negative} gestures were added to the training data in the modified test, as more \texttt{negative} gestures were unavailable.
+
+The purpose of these tests were to determine the robustness of the HMM framework for recognizing gestures under different circumstances (acted, or unacted). From the results above we can safely conclude that the HMMs are quite robust to adapt to situations as long as sufficient training is provided.
 
 \chapter{Conclusion}\label{sec:conclusion}
+In this report, we have demonstrated the application of Hidden Markov Models (HMMs) to recognize gestures in motion captured data. The existing works demonstrate how HMMs are very applicable in the field of gesture recognition because of their ability to train and recognize over spatio-temporal data. We start by discussing the process involved in using HMMs for gesture recognition. Then we discuss in detail some of the components related to the architecture of the over all recognition process. 
 
+We identify and discuss four key components in the framework: HMM topology, feature vector, data sets, and the codebook. We propose a linear HMM topology and a multi-tier linear HMM topology. We identified the data sets and the purpose of each data set in the experiment. We explore feature vector selection, and identify the importance of dimensionless feature vectors. And finally, we discuss codebook construction by the use of template matching, and alternatively by applying a k-means algorithm.
 
-\begin{thebibliography}{9}
-  % type bibliography here
-\end{thebibliography}
+The initial discovery phase of the experiment, analyzed the observation sequences and determined the cause of poor performance. We determined the cause of misclassification of gestures in the recognition process, and the steps necessary to improve it. We also analyzed how the codebook played an important role in HMMs. It was also established that the manual selection of template database is not feasible, as the data size increased. Later, by using a dimensionless feature vector and a multi-tier architecture for classifying similar gestures into emotions, we achieved a gesture recognition rate of 63\%. Finally, we test the robustness of the framework to be able to adapt and perform equally well for a different data set. In this final experiment the framework achieved a recognition rate of 60\%.
 
+The report has provided a detailed account of the components and the analysis of the framework (process) involved in using HMMs for recognizing gestures in motion capture data. Achieving a 63\% recognition rate; by supplying sufficient, and related, training data and tuning HMM properties specifically for recognizing emotions, an even higher recognition rate could be achieved.
+
+\bibliographystyle{unsrtnat}
+\nocite{*}
+\bibliography{biblio}
 \end{document}
 

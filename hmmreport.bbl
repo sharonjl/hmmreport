@@ -1,0 +1,194 @@
+\begin{thebibliography}{24}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Yang and Xu(1994)]{Yang_1994_329}
+Jie Yang and Yangsheng Xu.
+\newblock Hidden markov model for gesture recognition.
+\newblock Technical Report CMU-RI-TR-94-10, Robotics Institute, Pittsburgh, PA,
+  May 1994.
+
+\bibitem[Rabiner and Juang(1986)]{1165342}
+L.~Rabiner and B.~Juang.
+\newblock An introduction to hidden markov models.
+\newblock \emph{ASSP Magazine, IEEE}, 3\penalty0 (1):\penalty0 4 --16, jan
+  1986.
+\newblock ISSN 0740-7467.
+\newblock \doi{10.1109/MASSP.1986.1165342}.
+
+\bibitem[Lee and Wong(2004)]{springerlink:10.1007/s00422-004-0516-0}
+Jason Lee and Willy Wong.
+\newblock A stochastic model for the detection of coherent motion.
+\newblock \emph{Biological Cybernetics}, 91:\penalty0 306--314, 2004.
+\newblock ISSN 0340-1200.
+\newblock URL \url{http://dx.doi.org/10.1007/s00422-004-0516-0}.
+\newblock 10.1007/s00422-004-0516-0.
+
+\bibitem[Picone(1990)]{54527}
+J.~Picone.
+\newblock Continuous speech recognition using hidden markov models.
+\newblock \emph{ASSP Magazine, IEEE}, 7\penalty0 (3):\penalty0 26 --41, jul
+  1990.
+\newblock ISSN 0740-7467.
+\newblock \doi{10.1109/53.54527}.
+
+\bibitem[Hu et~al.(1996)Hu, Brown, and Turin]{541414}
+Jianying Hu, M.K. Brown, and W.~Turin.
+\newblock Hmm based online handwriting recognition.
+\newblock \emph{Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, 18\penalty0 (10):\penalty0 1039 --1045, oct 1996.
+\newblock ISSN 0162-8828.
+\newblock \doi{10.1109/34.541414}.
+
+\bibitem[Youzhi(2010)]{5602641}
+Zhang Youzhi.
+\newblock Research and application of hidden markov model in data mining.
+\newblock In \emph{Geoscience and Remote Sensing (IITA-GRS), 2010 Second IITA
+  International Conference on}, volume~1, pages 459 --462, aug. 2010.
+\newblock \doi{10.1109/IITA-GRS.2010.5602641}.
+
+\bibitem[Ma et~al.(2007)Ma, Schonfeld, and Khokhar]{4379516}
+Xiang Ma, D.~Schonfeld, and A.~Khokhar.
+\newblock A general two-dimensional hidden markov model and its application in
+  image classification.
+\newblock In \emph{Image Processing, 2007. ICIP 2007. IEEE International
+  Conference on}, volume~6, pages VI --41 --VI --44, 16 2007-oct. 19 2007.
+\newblock \doi{10.1109/ICIP.2007.4379516}.
+
+\bibitem[Mitra and Acharya(2007)]{4154947}
+S.~Mitra and T.~Acharya.
+\newblock Gesture recognition: A survey.
+\newblock \emph{Systems, Man, and Cybernetics, Part C: Applications and
+  Reviews, IEEE Transactions on}, 37\penalty0 (3):\penalty0 311 --324, may
+  2007.
+\newblock ISSN 1094-6977.
+\newblock \doi{10.1109/TSMCC.2007.893280}.
+
+\bibitem[Huang and Jeng(2001)]{Huang:2001:MHG:375397.375409}
+Chung-lin Huang and Sheng-Hung Jeng.
+\newblock A model-based hand gesture recognition system.
+\newblock \emph{Mach. Vision Appl.}, 12:\penalty0 243--258, May 2001.
+\newblock ISSN 0932-8092.
+\newblock \doi{10.1007/s001380050144}.
+\newblock URL \url{http://dl.acm.org/citation.cfm?id=375397.375409}.
+
+\bibitem[Lee and Kim(1999)]{799904}
+Hyeon-Kyu Lee and J.H. Kim.
+\newblock An hmm-based threshold model approach for gesture recognition.
+\newblock \emph{Pattern Analysis and Machine Intelligence, IEEE Transactions
+  on}, 21\penalty0 (10):\penalty0 961 --973, oct 1999.
+\newblock ISSN 0162-8828.
+\newblock \doi{10.1109/34.799904}.
+
+\bibitem[Chen et~al.(2003)Chen, Fu, and Huang]{Chen2003745}
+Feng-Sheng Chen, Chih-Ming Fu, and Chung-Lin Huang.
+\newblock Hand gesture recognition using a real-time tracking method and hidden
+  markov models.
+\newblock \emph{Image and Vision Computing}, 21\penalty0 (8):\penalty0 745 --
+  758, 2003.
+\newblock ISSN 0262-8856.
+\newblock \doi{10.1016/S0262-8856(03)00070-2}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0262885603000702}.
+
+\bibitem[Marcel et~al.(2000)Marcel, Bernier, Viallet, and Collobert]{840674}
+S.~Marcel, O.~Bernier, J.-E. Viallet, and D.~Collobert.
+\newblock Hand gesture recognition using input-output hidden markov models.
+\newblock In \emph{Automatic Face and Gesture Recognition, 2000. Proceedings.
+  Fourth IEEE International Conference on}, pages 456 --461, 2000.
+\newblock \doi{10.1109/AFGR.2000.840674}.
+
+\bibitem[Rigoll et~al.(1998)Rigoll, Kosmala, and
+  Eickeler]{Rigoll98highperformance}
+Gerhard Rigoll, Andreas Kosmala, and Stefan Eickeler.
+\newblock High performance real-time gesture recognition using hidden markov
+  models.
+\newblock In \emph{In Proc. Gesture Workshop}, pages 69--80. Springer, 1998.
+
+\bibitem[Pellegrini and Iocchi(2006)]{Pellegrini06humanposture}
+Stefano Pellegrini and Luca Iocchi.
+\newblock Human posture tracking and classification through stereo vision.
+\newblock In \emph{in Proc. of Intern. Conf. on Computer Vision Theory and
+  Applicartions (VISAPP}, 2006.
+
+\bibitem[Ott et~al.(2008)Ott, Lee, and Nakamura]{4755984}
+C.~Ott, Dongheui Lee, and Y.~Nakamura.
+\newblock Motion capture based human motion recognition and imitation by direct
+  marker control.
+\newblock In \emph{Humanoid Robots, 2008. Humanoids 2008. 8th IEEE-RAS
+  International Conference on}, pages 399 --405, dec. 2008.
+\newblock \doi{10.1109/ICHR.2008.4755984}.
+
+\bibitem[Starner and Pentland(1995)]{Starner95visualrecognition}
+Thad~E. Starner and Alex Pentland.
+\newblock Visual recognition of american sign language using hidden markov
+  models, 1995.
+
+\bibitem[Park et~al.(2005)Park, Kim, Jang, Park, Park, and
+  Kim]{springerlink:10.1007/11492429_73}
+Hye~Sun Park, Eun~Yi Kim, Sang~Su Jang, Se~Hyun Park, Min~Ho Park, and
+  Hang~Joon Kim.
+\newblock \emph{HMM-Based Gesture Recognition for Robot Control}.
+\newblock 2005.
+\newblock \doi{10.1007/11492429_73}.
+
+\bibitem[Kleinsmith et~al.(2006)Kleinsmith, De~Silva, and
+  Bianchi-Berthouze]{Kleinsmith:2006:CDR:1221613.1222203}
+Andrea Kleinsmith, P.~Ravindra De~Silva, and Nadia Bianchi-Berthouze.
+\newblock Cross-cultural differences in recognizing affect from body posture.
+\newblock \emph{Interact. Comput.}, 18:\penalty0 1371--1389, December 2006.
+\newblock ISSN 0953-5438.
+\newblock \doi{10.1016/j.intcom.2006.04.003}.
+\newblock URL \url{http://dl.acm.org/citation.cfm?id=1221613.1222203}.
+
+\bibitem[KlEINSMITH et~al.(2011)KlEINSMITH, Bianchi-Berthouze, and
+  Steed]{KlEINSMITH_Bianchi-Berthouze_Steed_2011}
+A~KlEINSMITH, N~Bianchi-Berthouze, and A~Steed.
+\newblock Automatic recognition of non-acted affective postures.
+\newblock \emph{IEEE transactions on systems man and cybernetics Part B
+  Cybernetics a publication of the IEEE Systems Man and Cybernetics Society},
+  41\penalty0 (4):\penalty0 1--12, 2011.
+\newblock URL \url{http://discovery.ucl.ac.uk/735772/}.
+
+\bibitem[Werghi and Xiao(2002)]{Werghi:2002:RHB:874061.875439}
+Naoufel Werghi and Yijun Xiao.
+\newblock Recognition of human body posture from a cloud of 3d data points
+  using wavelet transform coefficients.
+\newblock In \emph{Proceedings of the Fifth IEEE International Conference on
+  Automatic Face and Gesture Recognition}, FGR '02, pages 77--, Washington, DC,
+  USA, 2002. IEEE Computer Society.
+\newblock ISBN 0-7695-1602-5.
+\newblock URL \url{http://dl.acm.org/citation.cfm?id=874061.875439}.
+
+\bibitem[Elgammal et~al.()Elgammal, Shet, Yacoob, and
+  Davis]{Elgammal_gesturerecognition}
+Ahmed Elgammal, Vinay Shet, Yaser Yacoob, and Larry~S. Davis.
+\newblock Gesture recognition using a probabilistic framework for.
+\newblock In \emph{Pose Matching,” The Seventh International Conference on
+  Control, Automation, Robotics and Vision, ICARCV 2002, Singapore in}, pages
+  2--5.
+
+\bibitem[Wu et~al.()Wu, Huang, and Mathews]{Wu_vision-basedgesture}
+Ying Wu, Thomas~S. Huang, and N.~Mathews.
+\newblock Vision-based gesture recognition: A review.
+\newblock In \emph{Lecture Notes in Computer Science}, pages 103--115.
+  Springer.
+
+\bibitem[Rosales and Sclaroff(2000)]{Rosales:2000:LSH:795661.796179}
+R\'{o}mer Rosales and Stan Sclaroff.
+\newblock Learning and synthesizing human body motion and posture.
+\newblock In \emph{Proceedings of the Fourth IEEE International Conference on
+  Automatic Face and Gesture Recognition 2000}, FG '00, pages 506--,
+  Washington, DC, USA, 2000. IEEE Computer Society.
+\newblock ISBN 0-7695-0580-5.
+\newblock URL \url{http://dl.acm.org/citation.cfm?id=795661.796179}.
+
+\bibitem[BOULAY et~al.(2006)BOULAY, BREMOND, and THONNAT]{BBT06}
+Bernard BOULAY, Francois BREMOND, and Monique THONNAT.
+\newblock Applying 3d human model in a posture recognition system, November
+  2006.
+
+\end{thebibliography}
