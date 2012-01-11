@@ -1,15 +1,29 @@
-\contentsline {chapter}{\numberline {1}Introduction}{2}{chapter.1}
-\contentsline {section}{\numberline {1.1}Works consulted}{3}{section.1.1}
-\contentsline {section}{\numberline {1.2}Gesture Recognition with HMM}{4}{section.1.2}
-\contentsline {chapter}{\numberline {2}Framework Components}{7}{chapter.2}
-\contentsline {section}{\numberline {2.1}HMM topology}{7}{section.2.1}
-\contentsline {section}{\numberline {2.2}Data sets}{8}{section.2.2}
-\contentsline {section}{\numberline {2.3}Feature vector}{9}{section.2.3}
-\contentsline {section}{\numberline {2.4}Codebook}{11}{section.2.4}
-\contentsline {section}{\numberline {2.5}Future work}{12}{section.2.5}
-\contentsline {chapter}{\numberline {3}Experiment Results and Analysis}{13}{chapter.3}
-\contentsline {section}{\numberline {3.1}Initial discovery}{13}{section.3.1}
-\contentsline {section}{\numberline {3.2}Improving performance}{16}{section.3.2}
-\contentsline {section}{\numberline {3.3}Measured Performance}{18}{section.3.3}
-\contentsline {section}{\numberline {3.4}Unacted data set}{18}{section.3.4}
-\contentsline {chapter}{\numberline {4}Conclusion}{20}{chapter.4}
+\contentsline {chapter}{\numberline {1}Introduction}{3}{chapter.1}
+\contentsline {section}{\numberline {1.1}Works consulted}{4}{section.1.1}
+\contentsline {subsection}{\numberline {1.1.1}Gesture recognition}{4}{subsection.1.1.1}
+\contentsline {subsection}{\numberline {1.1.2}Gesture recognition in social robotics}{4}{subsection.1.1.2}
+\contentsline {subsection}{\numberline {1.1.3}Gesture recognition with HMM}{4}{subsection.1.1.3}
+\contentsline {subsubsection}{Dataset}{4}{subsection.1.1.3}
+\contentsline {subsubsection}{Feature vector}{4}{subsection.1.1.3}
+\contentsline {subsubsection}{HMM}{4}{subsection.1.1.3}
+\contentsline {subsubsection}{Retraining}{4}{subsection.1.1.3}
+\contentsline {chapter}{\numberline {2}Gesture Recognition with HMM}{6}{chapter.2}
+\contentsline {section}{\numberline {2.1}Terms}{6}{section.2.1}
+\contentsline {section}{\numberline {2.2}Data set}{6}{section.2.2}
+\contentsline {section}{\numberline {2.3}Feature Vector}{7}{section.2.3}
+\contentsline {section}{\numberline {2.4}Codebook}{8}{section.2.4}
+\contentsline {section}{\numberline {2.5}Training HMM}{8}{section.2.5}
+\contentsline {section}{\numberline {2.6}Classifying Observations}{8}{section.2.6}
+\contentsline {section}{\numberline {2.7}Retraining HMM}{8}{section.2.7}
+\contentsline {chapter}{\numberline {3}Framework Components}{12}{chapter.3}
+\contentsline {section}{\numberline {3.1}HMM topology}{12}{section.3.1}
+\contentsline {section}{\numberline {3.2}Data sets}{13}{section.3.2}
+\contentsline {section}{\numberline {3.3}Feature vector}{14}{section.3.3}
+\contentsline {section}{\numberline {3.4}Codebook}{16}{section.3.4}
+\contentsline {section}{\numberline {3.5}Future work}{17}{section.3.5}
+\contentsline {chapter}{\numberline {4}Experiment Results and Analysis}{18}{chapter.4}
+\contentsline {section}{\numberline {4.1}Initial discovery}{18}{section.4.1}
+\contentsline {section}{\numberline {4.2}Improving performance}{21}{section.4.2}
+\contentsline {section}{\numberline {4.3}Measured Performance}{23}{section.4.3}
+\contentsline {section}{\numberline {4.4}Unacted data set}{23}{section.4.4}
+\contentsline {chapter}{\numberline {5}Conclusion}{25}{chapter.5}

@@ -13,10 +13,11 @@
 \usepackage{booktabs}
 \usepackage[numbers]{natbib}
 % type user-defined commands here
+\doublespacing
 \titleformat{\chapter}[hang]{\bfseries\huge}{\thechapter.}{2pc}{}
 \begin{document}
 
-\doublespacing
+
 
 \title{Gesture recognition\\ in motion captured data \\using Hidden Markov Models\\\\\\}   % type title between braces
 \author{Sharon Lourduraj\\993833107\\\\M.Eng Report\\\\\\\\University of Toronto\\Mechanical and Industrial Engineering}         % type author(s) between braces
@@ -41,6 +42,14 @@ This report is an account of the experimental steps taken in using HMMs to recog
 We introduce the overall gesture recognition process using HMMs in section \ref{sec:overllprocess}. Chapter \ref{sec:fwc} outlines the main components of the process whose considerations are invaluable in making decisions to improve gesture recognition performance. Chapter \ref{sec:results} discusses the results of the experiments conducted, and analyzes the various pitfalls encountered in building a system to achieve a 63\% recongition rate.
 
 \section{Works consulted}
+\subsection{Gesture recognition}
+\subsection{Gesture recognition in social robotics}
+\subsection{Gesture recognition with HMM}
+\subsubsection{Dataset}
+\subsubsection{Feature vector}
+\subsubsection{HMM}
+\subsubsection{Retraining}
+
 The purpose of the experiment was to implement and evaluate the use of HMMs to train and classify gestures in motion captured data. HMMs can be applied to any problem where spatio-temporal variability is of importance. As such, the implementation of HMM is straight forward besides the overhead in implementing the algorithms necessary to train the HMM, and calculate outcomes. This means that HMMs can virtually be applied to any domain; applications include speech recognition\cite{54527}, hand writing recognition\cite{541414}, data mining\cite{5602641}, image classification\cite{4379516}, and of course gesture recognition\cite{4154947}. 
 
 In almost all of the works the implementation of the HMM algorithm remains the same. The difference between the various works is that they innovate in the extraction of feature vectors from an acted gesture. \citet{Huang:2001:MHG:375397.375409} propose a feature extraction by a hybrid technique combining the spatial and the temporal information of each frame to extract the feature images. \citet{springerlink:10.1007/s00422-004-0516-0} introduce a technique of template matching to generate observation symbols using a Johansson display that encodes the motion of a moving person. \citet{799904} introduce a HMM-based threshold model that rejects input patterns which are recognized as non-gesture motions. \citet{Chen2003745} introduce a method to recognize continuous gestures with a stationary background. \citet{840674} extract features by tracking the skin-color blobs corresponding to the hand into a body-face space centered on the face of the user\cite{840674}. \citet{Rigoll98highperformance} propose feature vectors based on global motion features, extracted from each difference image of the image sequence. \citet{Pellegrini06humanposture} use stereo vision sensors to track posture, and then match against a 3D model of a human to extract feature vectors, such as hip angle, and knee angle. 
@@ -51,7 +60,41 @@ The initial experiments were performed on the data set from \citet{Kleinsmith:20
 
 The bibliography section of the report includes many more works that were consulted to gather knowledge about gesture recognition and HMMs in general.
 
-\section{Gesture Recognition with HMM}\label{sec:overllprocess}
+\chapter{Gesture Recognition with HMM}\label{sec:overllprocess}
+We discuss the details of gesture recognition process using HMM in this chapter. This will put the reader in prespective of the various parts that work together in using HMMs for gesture recognition. HMM as a machine learning algorithm is pretty straight forward in application. Due to the generality of the algorithm it can be applied to any problem, in any domain, that can be translated into entities that a HMM process can take advantage of.
+
+\section{Terms}
+For clarity we establish some terms and their relative meaning, strictly as we have used them in this report and in our experiments.
+\begin{description}
+  \item[Feature Data] A specific property of a feature on a person's body, such as the position of the wrists, angle between the elbows, angle at the knees, or postion of the left-side of the head. 
+  \item[Posture] A posture is made up of a group of feature data. Together, they establish a person's pose. 
+  \item[Gesture] A gesture is made up of many postures. When one or more postures are executed in a sequence they convey a message from the person to an observer.
+  \item[Emotion] An emotion categorizes a group of gestures together. All gestures that indicate that a person is angry would fall under the angry emotion.
+\end{description}
+
+\section{Data set}
+As in any machine learning algorithm, a data set plays an important role in enabling the algorithm to train, classify and re-train. There are two types of data set that can be used for gesture recognition, data captured through a video camera, and data captured through a 3D marker tracking system. Tracking human actions through a video camera (or a web camera) is the simplest of the two. The camera captures a sequence of images that is used to extract features later in the process. The sophistication, or the details, of the data captured is reliant on the camera itself. A hi-definition camera would capture more details versus a low definition camera, likewise a camera that is able to collect color data can provide additional details of the scene.
+
+A 3D marker tracking system is a sophisticated derivative of using a video camera to capture data. Rather than capture details of the scene, the system captures movements of an actor's skeletal features. This is done by having many video cameras positioned at significant locations. These are then used to track markers on an actor wearing a specialized suit. Markers are positioned appropriately at significant locations such as wrists, knees, head, waist, spine, hips and many more. An algroithm then interprets the data from the various cameras and transforms them into position coordinates as it corrosponds to the human sekeletal frame. In essense, a single frame of this transformed data is a posture as defined earlier. This data can be further processed into rotation angles, and euler angles corresponding to a datum, as necessary.
+
+XBOX
+
+Regardless of how the data is captured, for gesture recognition a data set contains a collection of gesture movies. Dissecting further, a movie contains a sequence of frames, in our case a gesture movie contains a sequence of posture frames. And each posture frame contains data related to a feature that was tracked. The differences between the various tracking mechanism narrows down to the posture frame. A simple video capture system records raw data of the scene in each frame, while a 3D marker motion capture system captures joint locations or angles in each frame. A raw data would need to be processed further to extract the required features; in fact, any data can be processed further to refine features necessary to accomplish gesture tracking and recognition.
+
+\section{Feature Vector}
+The next step in the process is to extract feature vectors. Feature vectors isolate the necessary data from the redundant and non-essential data; data related to the scene from data related to the actor's limb positions. This is one of the more involved steps in the process. Any machine learning algorithm relies on feature vectors for training and classification, so does HMM. Feature vectors are extracted on a per posture basis. The feature extraction process can vary from being very simple to being extremely complex. 
+
+Features that are to be extracted depends on the data representation in the data set. A 3D marker based motion capture system provides the information of spatial coordinates in all three planes. Spatial coordinates are not the only features that can be extracted, many other features can be extracted that define complex relationships between a sequence of postures. Applying a difference operator to two posture frames would give us velocity feature vectors. Having spatial coordinates of various features allows us to calculate other information easily, such as head tilt angle, direction of head, angle at the elbow, depth of each wrist. While, a 2D video camera does not provide that information directly. To extract such information from a 2D image one needs to apply image processing techniques. Typically, this would involve normalizing the image, then extracting the actor from the image, and then finally perform a template analysis to extract data from the image. One can even calculate the average movement of pixels in a 2D image to estimate motion of a specific feature in that gesture.
+
+Feature vectors can be anything from the posture frames that is calculateable, quantizable and provides relevant information about the data that is going to be trained. Specific examples include, position coodinates, velocity, acceleration, angular velocity and angular acceleration of any number of features that are necessary to accomplish the training of a gesture and provide accurate classification. Suppose we have a gesture where the actor is hopping in the air, we should extract feature data corresponding to the position and velocity of knees, ankles and angle at the knees for a system to train and recognize a related gesture accurately. Ignoring a feature could result in missclassification.
+
+The feature extraction process does impose a significant overhead in the training and recognition process, suppose if the camera were to provide us with 10 images per second, then we would have to isolate and calculate 10 frames in less than one second to keep up with incoming data. Depending on the resolution of the data, the number of features,and the complexity of features to be extracted, this overhead could either increase or decrease.
+ 
+\section{Codebook}
+\section{Training HMM}
+\section{Classifying Observations}
+\section{Retraining HMM}
+
 The first steps in the process is to collect the data for the gesture that needs to be trained or classified from a human actor using a motion capture system. For clarity we establish needed terms for this report. We call the data captured from the motion capture system a \texttt{gesture}, which is a specific instance of an \texttt{emotion}. One or more gestures might be similar to each other and they would both fall under the same emotion. For example, being \texttt{angry} is an emotion, but one can show anger through various gestures. The data from the motion capture system is essentially a sequence of frames with motion capture data (angles, or position of body points in space). A \texttt{posture} is a specific frame in a gesture. A gesture is made up of a sequence of postures, as shown in figure \ref{fig:fw1}.
 
 \begin{figure}[htbp]

@@ -24,7 +24,7 @@ Class=CLatexEdit
 Document=hmmreport.tex
 
 [Frame0_Row0]
-cyCur=383
+cyCur=576
 cyMin=10
 
 [Frame0_Col0]
@@ -32,9 +32,9 @@ cxCur=1666
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=185
-Cursor.column=366
-TopSubLine=252
+Cursor.row=43
+Cursor.column=106
+TopSubLine=39
 
 [Frame1]
 Columns=1
