@@ -8,9 +8,9 @@
 \BOOKMARK [1][-]{section.2.2}{Data set}{chapter.2}% 8
 \BOOKMARK [1][-]{section.2.3}{Feature Vector}{chapter.2}% 9
 \BOOKMARK [1][-]{section.2.4}{Codebook}{chapter.2}% 10
-\BOOKMARK [1][-]{section.2.5}{Training HMM}{chapter.2}% 11
-\BOOKMARK [1][-]{section.2.6}{Classifying Observations}{chapter.2}% 12
-\BOOKMARK [1][-]{section.2.7}{Retraining HMM}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.5}{Observations sequences and states}{chapter.2}% 11
+\BOOKMARK [1][-]{section.2.6}{Training HMMs}{chapter.2}% 12
+\BOOKMARK [1][-]{section.2.7}{Classifying observations}{chapter.2}% 13
 \BOOKMARK [0][-]{chapter.3}{Framework Components}{}% 14
 \BOOKMARK [1][-]{section.3.1}{HMM topology}{chapter.3}% 15
 \BOOKMARK [1][-]{section.3.2}{Data sets}{chapter.3}% 16
@@ -22,4 +22,6 @@
 \BOOKMARK [1][-]{section.4.2}{Improving performance}{chapter.4}% 22
 \BOOKMARK [1][-]{section.4.3}{Measured Performance}{chapter.4}% 23
 \BOOKMARK [1][-]{section.4.4}{Unacted data set}{chapter.4}% 24
-\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 25
+\BOOKMARK [1][-]{section.4.5}{Xbox Kinect data set}{chapter.4}% 25
+\BOOKMARK [2][-]{subsection.4.5.1}{Retraining and noise variations}{section.4.5}% 26
+\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 27

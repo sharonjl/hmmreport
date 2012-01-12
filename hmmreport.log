@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.12.30)  10 JAN 2012 23:39
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.12.30)  12 JAN 2012 00:19
 entering extended mode
 **C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/hmmreport.tex
 (C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/hmmreport.tex
@@ -291,21 +291,33 @@ Package natbib Warning: The `cite' package should not be used
 LaTeX Info: Redefining \cite on input line 694.
 LaTeX Info: Redefining \citenum on input line 708.
 \c@NAT@ctr=\count114
-) (C:\Users\Sharon\Documents\Work\GestureRecog\hmmreport\hmmreport.aux)
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 18.
-LaTeX Font Info:    ... okay on input line 18.
+) (C:\Users\Sharon\AppData\Roaming\MiKTeX\2.9\tex\latex\fancyvrb\fancyvrb.sty
+Package: fancyvrb 2008/02/07
+
+Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix 
+<2008/02/07> (tvz)
+\FV@CodeLineNo=\count115
+\FV@InFile=\read1
+\FV@TabBox=\box27
+\c@FancyVerbLine=\count116
+\FV@StepNumber=\count117
+\FV@OutFile=\write3
+)
+(C:\Users\Sharon\Documents\Work\GestureRecog\hmmreport\hmmreport.aux)
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 19.
+LaTeX Font Info:    ... okay on input line 19.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -343,39 +355,39 @@ LaTeX Font Info:    ... okay on input line 18.
 
 (C:\Users\Sharon\AppData\Roaming\MiKTeX\2.9\tex\context\base\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count115
+\scratchcounter=\count118
 \scratchdimen=\dimen144
-\scratchbox=\box27
-\nofMPsegments=\count116
-\nofMParguments=\count117
+\scratchbox=\box28
+\nofMPsegments=\count119
+\nofMParguments=\count120
 \everyMPshowfont=\toks18
-\MPscratchCnt=\count118
+\MPscratchCnt=\count121
 \MPscratchDim=\dimen145
-\MPnumerator=\count119
-\makeMPintoPDFobject=\count120
+\MPnumerator=\count122
+\makeMPintoPDFobject=\count123
 \everyMPtoPDFconversion=\toks19
 )
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: subfig package v1.3 is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-\AtBeginShipoutBox=\box28
-Package hyperref Info: Link coloring OFF on input line 18.
+\AtBeginShipoutBox=\box29
+Package hyperref Info: Link coloring OFF on input line 19.
  ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\hyperref\nameref.sty"
 Package: nameref 2010/04/30 v2.40 Cross-referencing by name of section
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\generic\oberdiek\gettitlestring.sty"
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count121
+\c@section@level=\count124
 )
-LaTeX Info: Redefining \ref on input line 18.
-LaTeX Info: Redefining \pageref on input line 18.
-LaTeX Info: Redefining \nameref on input line 18.
+LaTeX Info: Redefining \ref on input line 19.
+LaTeX Info: Redefining \pageref on input line 19.
+LaTeX Info: Redefining \nameref on input line 19.
 
 (C:\Users\Sharon\Documents\Work\GestureRecog\hmmreport\hmmreport.out)
 (C:\Users\Sharon\Documents\Work\GestureRecog\hmmreport\hmmreport.out)
-\@outlinefile=\write3
+\@outlinefile=\write4
 
 
 ! LaTeX Error: There's no line here to end.
@@ -384,7 +396,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.26 
+l.27 
      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -397,18 +409,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.26 
+l.27 
      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 26.
+(Font)              <12> on input line 27.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 26.
+(Font)              <8> on input line 27.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 26.
+(Font)              <6> on input line 27.
 [1
 
 {C:/Users/Sharon/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]pdfTeX warn
@@ -416,7 +428,7 @@ ing (ext4): destination with the same identifier (name{page.1}) has been alread
 y used, duplicate ignored
 <to be read again> 
                    \relax 
-l.30 \end{abstract}
+l.31 \end{abstract}
                     [1]
 (C:\Users\Sharon\Documents\Work\GestureRecog\hmmreport\hmmreport.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
@@ -427,55 +439,68 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.29 ...{\numberline {5}Conclusion}{25}{chapter.5}
+l.30 ...{\numberline {5}Conclusion}{28}{chapter.5}
                                                    [1
 
 ])
-\tf@toc=\write4
+\tf@toc=\write5
  [2]
 Chapter 1.
 [3
 
 ] [4] [5]
 Chapter 2.
-[6
-
-] [7] <fw1.pdf, id=218, 416.2752pt x 187.17929pt>
+<fw1.pdf, id=215, 416.2752pt x 187.17929pt>
 File: fw1.pdf Graphic file (type pdf)
  <use fw1.pdf>
-Package pdftex.def Info: fw1.pdf used on input line 102.
+Package pdftex.def Info: fw1.pdf used on input line 80.
 (pdftex.def)             Requested size: 416.27419pt x 187.17883pt.
- [8]
-<fw2.pdf, id=226, 543.71129pt x 197.05621pt>
+ [6
+
+] [7 <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/fw1.pdf>] [8]
+<fw2.pdf, id=242, 543.71129pt x 197.05621pt>
 File: fw2.pdf Graphic file (type pdf)
  <use fw2.pdf>
-Package pdftex.def Info: fw2.pdf used on input line 115.
+Package pdftex.def Info: fw2.pdf used on input line 110.
 (pdftex.def)             Requested size: 469.755pt x 170.25883pt.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 116.
 
-<fw3.pdf, id=227, 476.98201pt x 210.5466pt>
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 116.
+
+! Too many }'s.
+l.116 ...esture is taking place. Figure \{fig:fw2}
+                                                   shows how a gesture input...
+You've closed more groups than you opened.
+Such booboos are generally harmless, so keep going.
+
+[9] [10 <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/fw2.pdf>]
+[11] <fw3.pdf, id=274, 476.98201pt x 210.5466pt>
 File: fw3.pdf Graphic file (type pdf)
  <use fw3.pdf>
-Package pdftex.def Info: fw3.pdf used on input line 123.
+Package pdftex.def Info: fw3.pdf used on input line 138.
 (pdftex.def)             Requested size: 422.77663pt x 186.62126pt.
- [9 <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/fw1.pdf>] [10 <C:/Us
-ers/Sharon/Documents/Work/GestureRecog/hmmreport/fw2.pdf> <C:/Users/Sharon/Docu
-ments/Work/GestureRecog/hmmreport/fw3.pdf>] [11]
+ [12 <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/fw3.pdf>]
 Chapter 3.
-<lineartopology.pdf, id=283, 246.9225pt x 92.9874pt>
+<lineartopology.pdf, id=293, 246.9225pt x 92.9874pt>
 File: lineartopology.pdf Graphic file (type pdf)
  <use lineartopology.pdf>
-Package pdftex.def Info: lineartopology.pdf used on input line 141.
+Package pdftex.def Info: lineartopology.pdf used on input line 153.
 (pdftex.def)             Requested size: 234.8775pt x 88.45103pt.
 
-[12
+[13
 
-] <multitopology.pdf, id=290, 472.88669pt x 195.8517pt>
+] <multitopology.pdf, id=300, 472.88669pt x 195.8517pt>
 File: multitopology.pdf Graphic file (type pdf)
 
 <use multitopology.pdf>
-Package pdftex.def Info: multitopology.pdf used on input line 152.
+Package pdftex.def Info: multitopology.pdf used on input line 164.
 (pdftex.def)             Requested size: 469.755pt x 194.5572pt.
- [13 <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/lineartopology.pdf>
+ [14 <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/lineartopology.pdf>
  <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/multitopology.pdf>]
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
@@ -507,33 +532,33 @@ Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
- [14] [15] [16] [17]
+ [15] [16] [17] [18]
 Chapter 4.
 
-Overfull \hbox (5.89299pt too wide) in paragraph at lines 238--248
+Overfull \hbox (5.89299pt too wide) in paragraph at lines 246--256
  [][] 
  []
 
-[18
+[19
 
-] [19] <kms-2.png, id=367, 309.155pt x 344.28625pt>
+] [20] <kms-2.png, id=377, 309.155pt x 344.28625pt>
 File: kms-2.png Graphic file (type png)
  <use kms-2.png>
-Package pdftex.def Info: kms-2.png used on input line 291.
+Package pdftex.def Info: kms-2.png used on input line 299.
 (pdftex.def)             Requested size: 140.92793pt x 156.94467pt.
 
-<kms-11.png, id=368, 302.12875pt x 344.28625pt>
+<kms-11.png, id=378, 302.12875pt x 344.28625pt>
 File: kms-11.png Graphic file (type png)
  <use kms-11.png>
-Package pdftex.def Info: kms-11.png used on input line 292.
+Package pdftex.def Info: kms-11.png used on input line 300.
 (pdftex.def)             Requested size: 140.92793pt x 160.59052pt.
 
-<kms-18.png, id=369, 278.03876pt x 344.28625pt>
+<kms-18.png, id=379, 278.03876pt x 344.28625pt>
 File: kms-18.png Graphic file (type png)
  <use kms-18.png>
-Package pdftex.def Info: kms-18.png used on input line 293.
+Package pdftex.def Info: kms-18.png used on input line 301.
 (pdftex.def)             Requested size: 140.92793pt x 174.50671pt.
- [20 <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/kms-2.png> <C:/User
+ [21 <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/kms-2.png> <C:/User
 s/Sharon/Documents/Work/GestureRecog/hmmreport/kms-11.png> <C:/Users/Sharon/Doc
 uments/Work/GestureRecog/hmmreport/kms-18.png>]
 Missing character: There is no   in font cmr10!
@@ -1197,147 +1222,7 @@ Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
- [21] [22]
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
- [23]
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
-Missing character: There is no   in font cmr10!
+ [22] [23]
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
@@ -1399,30 +1284,365 @@ Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
  [24]
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+ [25]
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+ [26] [27]
 Chapter 5.
-(C:\Users\Sharon\Documents\Work\GestureRecog\hmmreport\hmmreport.bbl [25
+(C:\Users\Sharon\Documents\Work\GestureRecog\hmmreport\hmmreport.bbl [28
 
 ]
-[26
+[29
 
-] [27]
+] [30]
 Missing character: There is no ” in font cmti10!
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 456.
- [28]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 456.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 507.
+ [31]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 507.
 
 (C:\Users\Sharon\Documents\Work\GestureRecog\hmmreport\hmmreport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 456.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 456.
-Package rerunfilecheck Info: File `hmmreport.out' has not changed.
-(rerunfilecheck)             Checksum: 50EF0128D3D0811ACC676CDF03FF4CB4;1571.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 507.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 507.
+
+
+Package rerunfilecheck Warning: File `hmmreport.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `hmmreport.out':
+(rerunfilecheck)             Before: 68A2897B870B81B81A792F6A3DA8E932;1659
+(rerunfilecheck)             After:  5BADD7D4FB6F0A4F6E52415F73D71AE7;1745.
  ) 
 Here is how much of TeX's memory you used:
- 7486 strings out of 494045
- 114585 string characters out of 3145965
- 217740 words of memory out of 3000000
- 10609 multiletter control sequences out of 15000+200000
+ 7880 strings out of 494045
+ 120789 string characters out of 3145965
+ 225242 words of memory out of 3000000
+ 10986 multiletter control sequences out of 15000+200000
  8716 words of font info for 31 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  44i,10n,46p,1680b,453s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1436,9 +1656,9 @@ iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files
  (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on hmmreport.pdf (30 pages, 2104036 bytes).
+Output written on hmmreport.pdf (33 pages, 2118029 bytes).
 PDF statistics:
- 509 PDF objects out of 1000 (max. 8388607)
- 100 named destinations out of 1000 (max. 500000)
- 241 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 537 PDF objects out of 1000 (max. 8388607)
+ 110 named destinations out of 1000 (max. 500000)
+ 249 words of extra memory for PDF output out of 10000 (max. 10000000)
 
