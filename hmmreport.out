@@ -6,18 +6,17 @@
 \BOOKMARK [1][-]{section.2.4}{Feature Vector}{chapter.2}% 6
 \BOOKMARK [1][-]{section.2.5}{Codebook}{chapter.2}% 7
 \BOOKMARK [1][-]{section.2.6}{Observations sequences and states}{chapter.2}% 8
-\BOOKMARK [1][-]{section.2.7}{Training HMMs}{chapter.2}% 9
-\BOOKMARK [1][-]{section.2.8}{Classifying observations}{chapter.2}% 10
-\BOOKMARK [0][-]{chapter.3}{Framework Components}{}% 11
-\BOOKMARK [1][-]{section.3.1}{HMM topology}{chapter.3}% 12
-\BOOKMARK [1][-]{section.3.2}{Data sets}{chapter.3}% 13
-\BOOKMARK [1][-]{section.3.3}{Feature vector}{chapter.3}% 14
-\BOOKMARK [1][-]{section.3.4}{Codebook}{chapter.3}% 15
-\BOOKMARK [1][-]{section.3.5}{Future work}{chapter.3}% 16
-\BOOKMARK [0][-]{chapter.4}{Experiment Results and Analysis}{}% 17
-\BOOKMARK [1][-]{section.4.1}{Initial discovery}{chapter.4}% 18
-\BOOKMARK [1][-]{section.4.2}{Improving performance}{chapter.4}% 19
-\BOOKMARK [1][-]{section.4.3}{Measured Performance}{chapter.4}% 20
-\BOOKMARK [1][-]{section.4.4}{Unacted data set}{chapter.4}% 21
-\BOOKMARK [1][-]{section.4.5}{Xbox Kinect data set}{chapter.4}% 22
-\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 23
+\BOOKMARK [1][-]{section.2.7}{Training and Classification}{chapter.2}% 9
+\BOOKMARK [0][-]{chapter.3}{Framework Components}{}% 10
+\BOOKMARK [1][-]{section.3.1}{HMM topology}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.2}{Data sets}{chapter.3}% 12
+\BOOKMARK [1][-]{section.3.3}{Feature vector}{chapter.3}% 13
+\BOOKMARK [1][-]{section.3.4}{Codebook}{chapter.3}% 14
+\BOOKMARK [0][-]{chapter.4}{Experiment Results and Analysis}{}% 15
+\BOOKMARK [1][-]{section.4.1}{Initial discovery}{chapter.4}% 16
+\BOOKMARK [1][-]{section.4.2}{Improving performance}{chapter.4}% 17
+\BOOKMARK [1][-]{section.4.3}{Measured Performance}{chapter.4}% 18
+\BOOKMARK [1][-]{section.4.4}{Unacted data set}{chapter.4}% 19
+\BOOKMARK [1][-]{section.4.5}{Xbox Kinect data set}{chapter.4}% 20
+\BOOKMARK [0][-]{chapter.5}{Future recommendations}{}% 21
+\BOOKMARK [0][-]{chapter.6}{Conclusion}{}% 22

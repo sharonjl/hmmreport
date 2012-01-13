@@ -1,4 +1,4 @@
-\begin{thebibliography}{28}
+\begin{thebibliography}{31}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -203,6 +203,19 @@ Takashi Morie, Hiroyuki Miyamoto, and Akitoshi Hanazawa.
   “BrainIT 2006” held in Hibikino, Kitakyushu, Japan between 27 and 29
   September 2006</ce:title>.
 
+\bibitem[Kar(2010)]{Kar_2010}
+Abhishek Kar.
+\newblock Skeletal tracking using microsoft kinect the microsoft kinect sensor.
+\newblock \emph{Methodology}, pages 1--11, 2010.
+\newblock URL
+  \url{http://home.iitk.ac.in/~akar/cs397/Skeletal\%20Tracking\%20Using\%20Microsoft\%20Kinect.pdf}.
+
+\bibitem[Wilson et~al.(1996)Wilson, Bobick, and Cassell]{Wilson96recoveringthe}
+Andrew Wilson, Aaron~F. Bobick, and Justine Cassell.
+\newblock Recovering the temporal structure of natural gesture.
+\newblock In \emph{In Proc. 2nd Int. Conf. on Automatic Face and Gesture
+  Recognition}, pages 66--71, 1996.
+
 \bibitem[Werghi and Xiao(2002)]{Werghi:2002:RHB:874061.875439}
 Naoufel Werghi and Yijun Xiao.
 \newblock Recognition of human body posture from a cloud of 3d data points
@@ -240,5 +253,14 @@ R\'{o}mer Rosales and Stan Sclaroff.
 Bernard BOULAY, Francois BREMOND, and Monique THONNAT.
 \newblock Applying 3d human model in a posture recognition system, November
   2006.
+
+\bibitem[Shotton et~al.(2011)Shotton, Fitzgibbon, Cook, Sharp, Finocchio,
+  Moore, Kipman, and Blake]{5995316}
+J.~Shotton, A.~Fitzgibbon, M.~Cook, T.~Sharp, M.~Finocchio, R.~Moore,
+  A.~Kipman, and A.~Blake.
+\newblock Real-time human pose recognition in parts from single depth images.
+\newblock In \emph{Computer Vision and Pattern Recognition (CVPR), 2011 IEEE
+  Conference on}, pages 1297 --1304, june 2011.
+\newblock \doi{10.1109/CVPR.2011.5995316}.
 
 \end{thebibliography}
