@@ -1,9 +1,18 @@
-\begin{thebibliography}{31}
+\begin{thebibliography}{36}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Mitra and Acharya(2007)]{4154947}
+S.~Mitra and T.~Acharya.
+\newblock Gesture recognition: A survey.
+\newblock \emph{Systems, Man, and Cybernetics, Part C: Applications and
+  Reviews, IEEE Transactions on}, 37\penalty0 (3):\penalty0 311 --324, may
+  2007.
+\newblock ISSN 1094-6977.
+\newblock \doi{10.1109/TSMCC.2007.893280}.
 
 \bibitem[Yang and Xu(1994)]{Yang_1994_329}
 Jie Yang and Yangsheng Xu.
@@ -26,6 +35,16 @@ Jason Lee and Willy Wong.
 \newblock ISSN 0340-1200.
 \newblock URL \url{http://dx.doi.org/10.1007/s00422-004-0516-0}.
 \newblock 10.1007/s00422-004-0516-0.
+
+\bibitem[McColl et~al.(2011)McColl, Zhang, and Nejat]{dmcoll}
+Derek McColl, Zhe Zhang, and Goldie Nejat.
+\newblock Human body pose interpretation and classification for social
+  human-robot interaction.
+\newblock \emph{International Journal of Social Robotics}, 3:\penalty0
+  313--332, 2011.
+\newblock ISSN 1875-4791.
+\newblock URL \url{http://dx.doi.org/10.1007/s12369-011-0099-6}.
+\newblock 10.1007/s12369-011-0099-6.
 
 \bibitem[Fong et~al.(2003)Fong, Nourbakhsh, and Dautenhahn]{Fong2003143}
 Terrence Fong, Illah Nourbakhsh, and Kerstin Dautenhahn.
@@ -68,15 +87,6 @@ Xiang Ma, D.~Schonfeld, and A.~Khokhar.
 \newblock In \emph{Image Processing, 2007. ICIP 2007. IEEE International
   Conference on}, volume~6, pages VI --41 --VI --44, 16 2007-oct. 19 2007.
 \newblock \doi{10.1109/ICIP.2007.4379516}.
-
-\bibitem[Mitra and Acharya(2007)]{4154947}
-S.~Mitra and T.~Acharya.
-\newblock Gesture recognition: A survey.
-\newblock \emph{Systems, Man, and Cybernetics, Part C: Applications and
-  Reviews, IEEE Transactions on}, 37\penalty0 (3):\penalty0 311 --324, may
-  2007.
-\newblock ISSN 1094-6977.
-\newblock \doi{10.1109/TSMCC.2007.893280}.
 
 \bibitem[Huang and Jeng(2001)]{Huang:2001:MHG:375397.375409}
 Chung-lin Huang and Sheng-Hung Jeng.
@@ -210,11 +220,39 @@ Abhishek Kar.
 \newblock URL
   \url{http://home.iitk.ac.in/~akar/cs397/Skeletal\%20Tracking\%20Using\%20Microsoft\%20Kinect.pdf}.
 
+\bibitem[Azad and Azad(2009)]{springerlink:10.1007/978-3-642-04229-4_4}
+Pedram Azad and Pedram Azad.
+\newblock Fundamentals of image processing.
+\newblock In \emph{Visual Perception for Manipulation and Imitation in Humanoid
+  Robots}, volume~4 of \emph{Cognitive Systems Monographs}, pages 67--89.
+  Springer Berlin Heidelberg, 2009.
+\newblock ISBN 978-3-642-04229-4.
+\newblock URL \url{http://dx.doi.org/10.1007/978-3-642-04229-4_4}.
+\newblock 10.1007/978-3-642-04229-4_4.
+
 \bibitem[Wilson et~al.(1996)Wilson, Bobick, and Cassell]{Wilson96recoveringthe}
 Andrew Wilson, Aaron~F. Bobick, and Justine Cassell.
 \newblock Recovering the temporal structure of natural gesture.
 \newblock In \emph{In Proc. 2nd Int. Conf. on Automatic Face and Gesture
   Recognition}, pages 66--71, 1996.
+
+\bibitem[Stamp(2004)]{Stamp04arevealing}
+Mark Stamp.
+\newblock A revealing introduction to hidden markov models, 2004.
+
+\bibitem[Moghaddam and Piccardi(2009)]{5384990}
+Z.~Moghaddam and M.~Piccardi.
+\newblock Deterministic initialization of hidden markov models for human action
+  recognition.
+\newblock In \emph{Digital Image Computing: Techniques and Applications, 2009.
+  DICTA '09.}, pages 188 --195, dec. 2009.
+\newblock \doi{10.1109/DICTA.2009.37}.
+
+\bibitem[Bottou and Bengio(1995)]{Bottou95convergenceproperties}
+Léon Bottou and Yoshua Bengio.
+\newblock Convergence properties of the k-means algorithms.
+\newblock In \emph{Advances in Neural Information Processing Systems 7}, pages
+  585--592. MIT Press, 1995.
 
 \bibitem[Werghi and Xiao(2002)]{Werghi:2002:RHB:874061.875439}
 Naoufel Werghi and Yijun Xiao.

@@ -18,13 +18,13 @@ MaxPos.x=-8
 MaxPos.y=-30
 NormalPos.left=50
 NormalPos.top=50
-NormalPos.right=1585
-NormalPos.bottom=451
+NormalPos.right=1558
+NormalPos.bottom=468
 Class=CLatexEdit
 Document=hmmreport.tex
 
 [Frame0_Row0]
-cyCur=576
+cyCur=674
 cyMin=10
 
 [Frame0_Col0]
@@ -32,9 +32,9 @@ cxCur=1666
 cxMin=10
 
 [Frame0_View0,0]
-Cursor.row=43
-Cursor.column=106
-TopSubLine=39
+Cursor.row=30
+Cursor.column=0
+TopSubLine=33
 
 [Frame1]
 Columns=1
@@ -45,23 +45,23 @@ MinPos.x=-1
 MinPos.y=-1
 MaxPos.x=-8
 MaxPos.y=-30
-NormalPos.left=25
-NormalPos.top=25
-NormalPos.right=1539
-NormalPos.bottom=470
+NormalPos.left=75
+NormalPos.top=75
+NormalPos.right=1587
+NormalPos.bottom=497
 Class=CLatexEdit
 Document=biblio.bib
 
 [Frame1_Row0]
-cyCur=386
+cyCur=363
 cyMin=10
 
 [Frame1_Col0]
-cxCur=1477
+cxCur=1475
 cxMin=10
 
 [Frame1_View0,0]
-Cursor.row=0
-Cursor.column=0
-TopSubLine=0
+Cursor.row=444
+Cursor.column=23
+TopSubLine=435
 

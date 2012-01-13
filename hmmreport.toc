@@ -7,16 +7,16 @@
 \contentsline {section}{\numberline {2.5}Codebook}{8}{section.2.5}
 \contentsline {section}{\numberline {2.6}Observations sequences and states}{9}{section.2.6}
 \contentsline {section}{\numberline {2.7}Training and Classification}{10}{section.2.7}
-\contentsline {chapter}{\numberline {3}Framework Components}{12}{chapter.3}
-\contentsline {section}{\numberline {3.1}HMM topology}{12}{section.3.1}
-\contentsline {section}{\numberline {3.2}Data sets}{14}{section.3.2}
-\contentsline {section}{\numberline {3.3}Feature vector}{15}{section.3.3}
-\contentsline {section}{\numberline {3.4}Codebook}{18}{section.3.4}
-\contentsline {chapter}{\numberline {4}Experiment Results and Analysis}{20}{chapter.4}
-\contentsline {section}{\numberline {4.1}Initial discovery}{20}{section.4.1}
-\contentsline {section}{\numberline {4.2}Improving performance}{23}{section.4.2}
-\contentsline {section}{\numberline {4.3}Measured Performance}{25}{section.4.3}
-\contentsline {section}{\numberline {4.4}Unacted data set}{27}{section.4.4}
-\contentsline {section}{\numberline {4.5}Xbox Kinect data set}{28}{section.4.5}
-\contentsline {chapter}{\numberline {5}Future recommendations}{32}{chapter.5}
-\contentsline {chapter}{\numberline {6}Conclusion}{33}{chapter.6}
+\contentsline {chapter}{\numberline {3}Framework Components}{13}{chapter.3}
+\contentsline {section}{\numberline {3.1}HMM topology}{13}{section.3.1}
+\contentsline {section}{\numberline {3.2}Data sets}{15}{section.3.2}
+\contentsline {section}{\numberline {3.3}Feature vector}{16}{section.3.3}
+\contentsline {section}{\numberline {3.4}Codebook}{19}{section.3.4}
+\contentsline {chapter}{\numberline {4}Experiment Results and Analysis}{21}{chapter.4}
+\contentsline {section}{\numberline {4.1}Initial discovery}{21}{section.4.1}
+\contentsline {section}{\numberline {4.2}Improving performance}{24}{section.4.2}
+\contentsline {section}{\numberline {4.3}Measured Performance}{26}{section.4.3}
+\contentsline {section}{\numberline {4.4}Unacted data set}{29}{section.4.4}
+\contentsline {section}{\numberline {4.5}Xbox Kinect data set}{30}{section.4.5}
+\contentsline {chapter}{\numberline {5}Future direction}{34}{chapter.5}
+\contentsline {chapter}{\numberline {6}Conclusion}{35}{chapter.6}
