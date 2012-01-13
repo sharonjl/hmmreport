@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.12.30)  12 JAN 2012 00:19
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2011.12.30)  12 JAN 2012 20:32
 entering extended mode
 **C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/hmmreport.tex
 (C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/hmmreport.tex
@@ -303,7 +303,11 @@ Style option: `fancyvrb' v2.7a, with DG/SPQR fixes, and firstline=lastline fix
 \FV@StepNumber=\count117
 \FV@OutFile=\write3
 )
-(C:\Users\Sharon\Documents\Work\GestureRecog\hmmreport\hmmreport.aux)
+(C:\Users\Sharon\Documents\Work\GestureRecog\hmmreport\hmmreport.aux
+
+LaTeX Warning: Label `fig:multitopology' multiply defined.
+
+)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 19.
 LaTeX Font Info:    ... okay on input line 19.
 LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 19.
@@ -396,7 +400,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.27 
+l.25 
      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
@@ -409,18 +413,18 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.27 
+l.25 
      
 Your command was ignored.
 Type  I <command> <return>  to replace it with another command,
 or  <return>  to continue without it.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <12> on input line 27.
+(Font)              <12> on input line 25.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 27.
+(Font)              <8> on input line 25.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 27.
+(Font)              <6> on input line 25.
 [1
 
 {C:/Users/Sharon/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]pdfTeX warn
@@ -428,79 +432,79 @@ ing (ext4): destination with the same identifier (name{page.1}) has been alread
 y used, duplicate ignored
 <to be read again> 
                    \relax 
-l.31 \end{abstract}
+l.29 \end{abstract}
                     [1]
 (C:\Users\Sharon\Documents\Work\GestureRecog\hmmreport\hmmreport.toc
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 2.
+(Font)              <7> on input line 3.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 2.
+(Font)              <5> on input line 3.
+)
+\tf@toc=\write5
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.30 ...{\numberline {5}Conclusion}{28}{chapter.5}
-                                                   [1
+l.31 \chapter
+             {Introduction}             % chapter 1 [1
 
-])
-\tf@toc=\write5
- [2]
+]
 Chapter 1.
-[3
+[2
 
-] [4] [5]
+] [3]
 Chapter 2.
-<fw1.pdf, id=215, 416.2752pt x 187.17929pt>
+[4
+
+] [5] <fw1.pdf, id=207, 416.2752pt x 187.17929pt>
 File: fw1.pdf Graphic file (type pdf)
  <use fw1.pdf>
-Package pdftex.def Info: fw1.pdf used on input line 80.
+Package pdftex.def Info: fw1.pdf used on input line 74.
 (pdftex.def)             Requested size: 416.27419pt x 187.17883pt.
- [6
-
-] [7 <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/fw1.pdf>] [8]
-<fw2.pdf, id=242, 543.71129pt x 197.05621pt>
+ [6 <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/fw1.pdf>] [7] [8]
+<fw2.pdf, id=237, 543.71129pt x 197.05621pt>
 File: fw2.pdf Graphic file (type pdf)
  <use fw2.pdf>
-Package pdftex.def Info: fw2.pdf used on input line 110.
+Package pdftex.def Info: fw2.pdf used on input line 104.
 (pdftex.def)             Requested size: 469.755pt x 170.25883pt.
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 116.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 110.
 
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
 File: omscmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 116.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 110.
 
 ! Too many }'s.
-l.116 ...esture is taking place. Figure \{fig:fw2}
+l.110 ...esture is taking place. Figure \{fig:fw2}
                                                    shows how a gesture input...
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
 
-[9] [10 <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/fw2.pdf>]
-[11] <fw3.pdf, id=274, 476.98201pt x 210.5466pt>
+[9 <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/fw2.pdf>] [10]
+<fw3.pdf, id=263, 476.98201pt x 210.5466pt>
 File: fw3.pdf Graphic file (type pdf)
  <use fw3.pdf>
-Package pdftex.def Info: fw3.pdf used on input line 138.
+Package pdftex.def Info: fw3.pdf used on input line 132.
 (pdftex.def)             Requested size: 422.77663pt x 186.62126pt.
- [12 <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/fw3.pdf>]
+ [11 <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/fw3.pdf>]
 Chapter 3.
-<lineartopology.pdf, id=293, 246.9225pt x 92.9874pt>
+<lineartopology.pdf, id=283, 246.9225pt x 92.9874pt>
 File: lineartopology.pdf Graphic file (type pdf)
  <use lineartopology.pdf>
-Package pdftex.def Info: lineartopology.pdf used on input line 153.
+Package pdftex.def Info: lineartopology.pdf used on input line 147.
 (pdftex.def)             Requested size: 234.8775pt x 88.45103pt.
 
-[13
+[12
 
-] <multitopology.pdf, id=300, 472.88669pt x 195.8517pt>
+] <multitopology.pdf, id=290, 472.88669pt x 195.8517pt>
 File: multitopology.pdf Graphic file (type pdf)
 
 <use multitopology.pdf>
-Package pdftex.def Info: multitopology.pdf used on input line 164.
+Package pdftex.def Info: multitopology.pdf used on input line 158.
 (pdftex.def)             Requested size: 469.755pt x 194.5572pt.
- [14 <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/lineartopology.pdf>
+ [13 <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/lineartopology.pdf>
  <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/multitopology.pdf>]
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
@@ -532,33 +536,33 @@ Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
- [15] [16] [17] [18]
+ [14] [15] [16] [17]
 Chapter 4.
 
-Overfull \hbox (5.89299pt too wide) in paragraph at lines 246--256
+Overfull \hbox (5.89299pt too wide) in paragraph at lines 240--250
  [][] 
  []
 
-[19
+[18
 
-] [20] <kms-2.png, id=377, 309.155pt x 344.28625pt>
+] [19] <kms-2.png, id=368, 309.155pt x 344.28625pt>
 File: kms-2.png Graphic file (type png)
  <use kms-2.png>
-Package pdftex.def Info: kms-2.png used on input line 299.
+Package pdftex.def Info: kms-2.png used on input line 293.
 (pdftex.def)             Requested size: 140.92793pt x 156.94467pt.
 
-<kms-11.png, id=378, 302.12875pt x 344.28625pt>
+<kms-11.png, id=369, 302.12875pt x 344.28625pt>
 File: kms-11.png Graphic file (type png)
  <use kms-11.png>
-Package pdftex.def Info: kms-11.png used on input line 300.
+Package pdftex.def Info: kms-11.png used on input line 294.
 (pdftex.def)             Requested size: 140.92793pt x 160.59052pt.
 
-<kms-18.png, id=379, 278.03876pt x 344.28625pt>
+<kms-18.png, id=370, 278.03876pt x 344.28625pt>
 File: kms-18.png Graphic file (type png)
  <use kms-18.png>
-Package pdftex.def Info: kms-18.png used on input line 301.
+Package pdftex.def Info: kms-18.png used on input line 295.
 (pdftex.def)             Requested size: 140.92793pt x 174.50671pt.
- [21 <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/kms-2.png> <C:/User
+ [20 <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/kms-2.png> <C:/User
 s/Sharon/Documents/Work/GestureRecog/hmmreport/kms-11.png> <C:/Users/Sharon/Doc
 uments/Work/GestureRecog/hmmreport/kms-18.png>]
 Missing character: There is no   in font cmr10!
@@ -1222,7 +1226,7 @@ Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
- [22] [23]
+ [21] [22]
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
@@ -1283,7 +1287,15 @@ Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
- [24]
+
+<codebookoverhead.pdf, id=405, 614.295pt x 794.97pt>
+File: codebookoverhead.pdf Graphic file (type pdf)
+
+<use codebookoverhead.pdf>
+Package pdftex.def Info: codebookoverhead.pdf used on input line 413.
+(pdftex.def)             Requested size: 469.755pt x 607.9196pt.
+ [23] [24 <C:/Users/Sharon/Documents/Work/GestureRecog/hmmreport/codebookoverhe
+ad.pdf>]
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
@@ -1518,6 +1530,7 @@ Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
+ [26]
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
@@ -1611,38 +1624,143 @@ Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
 Missing character: There is no   in font cmr10!
- [26] [27]
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+Missing character: There is no   in font cmr10!
+ [27] [28]
 Chapter 5.
-(C:\Users\Sharon\Documents\Work\GestureRecog\hmmreport\hmmreport.bbl [28
+(C:\Users\Sharon\Documents\Work\GestureRecog\hmmreport\hmmreport.bbl [29
 
 ]
-[29
+Missing character: There is no – in font cmr10!
 
-] [30]
+Underfull \hbox (badness 1946) in paragraph at lines 31--40
+[]\OT1/cmr/m/n/10 Terrence Fong, Il-lah Nour-bakhsh, and Ker-stin Daut-en-hahn.
+  A sur-vey of so-cially in-ter-ac-
+ []
+
+
+Underfull \hbox (badness 1297) in paragraph at lines 31--40
+\OT1/cmr/m/n/10 tive robots.  \OT1/cmr/m/it/10 Robotics and Au-tonomous Sys-tem
+s\OT1/cmr/m/n/10 , 42(34):143 -- 166, 2003.  ISSN 0921-8890.
+ []
+
+[30
+
+] [31]
+Missing character: There is no “ in font cmr10!
+Missing character: There is no ” in font cmr10!
 Missing character: There is no ” in font cmti10!
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 507.
- [31]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 507.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 524.
+ [32]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 524.
 
 (C:\Users\Sharon\Documents\Work\GestureRecog\hmmreport\hmmreport.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 507.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 507.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 524.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 524.
+Package rerunfilecheck Info: File `hmmreport.out' has not changed.
+(rerunfilecheck)             Checksum: 9ED884D1D11DD385AB2C9812B975D492;1409.
 
 
-Package rerunfilecheck Warning: File `hmmreport.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: There were multiply-defined labels.
 
-Package rerunfilecheck Info: Checksums for `hmmreport.out':
-(rerunfilecheck)             Before: 68A2897B870B81B81A792F6A3DA8E932;1659
-(rerunfilecheck)             After:  5BADD7D4FB6F0A4F6E52415F73D71AE7;1745.
  ) 
 Here is how much of TeX's memory you used:
- 7880 strings out of 494045
- 120789 string characters out of 3145965
- 225242 words of memory out of 3000000
- 10986 multiletter control sequences out of 15000+200000
+ 7891 strings out of 494045
+ 121021 string characters out of 3145965
+ 225655 words of memory out of 3000000
+ 10993 multiletter control sequences out of 15000+200000
  8716 words of font info for 31 fonts, out of 3000000 for 9000
  715 hyphenation exceptions out of 8191
  44i,10n,46p,1680b,453s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1656,9 +1774,9 @@ iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files
  (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files (
 x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Program Files (x8
 6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on hmmreport.pdf (33 pages, 2118029 bytes).
+Output written on hmmreport.pdf (34 pages, 2128306 bytes).
 PDF statistics:
- 537 PDF objects out of 1000 (max. 8388607)
- 110 named destinations out of 1000 (max. 500000)
- 249 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 548 PDF objects out of 1000 (max. 8388607)
+ 113 named destinations out of 1000 (max. 500000)
+ 230 words of extra memory for PDF output out of 10000 (max. 10000000)
 

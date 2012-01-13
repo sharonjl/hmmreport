@@ -18,8 +18,6 @@
 \titleformat{\chapter}[hang]{\bfseries\huge}{\thechapter.}{2pc}{}
 \begin{document}
 
-
-
 \title{Gesture recognition\\ in motion captured data \\using Hidden Markov Models\\\\\\}   % type title between braces
 \author{Sharon Lourduraj\\993833107\\\\M.Eng Report\\\\\\\\University of Toronto\\Mechanical and Industrial Engineering}         % type author(s) between braces
 \date{Jan 4, 2011}    % type date between braces
@@ -31,6 +29,8 @@ Hidden Markov Models (HMMs) lend themselves well in a variety of applications th
 \end{abstract}
 \tableofcontents
 \chapter{Introduction}             % chapter 1
+Technology from our hand-watches to parts for space stations are built by automated machines. Today, it is an important part of our lives. And in the future it will be even more important as we start interacting with intelligent agents to accomplish our tasks. The key difference between today's robots and tomorrows robot is not the computing power or sensing capabilities it will be their seamless interaction with their users. As we know it a robot that manufactures parts for automobiles certainly does not need to be socially friendly with its human operaters. These robots do what they are told, without question; but that is the purpose behind them, build parts continuously. But we want to look into robots that might one day service users, help you make coffee, assist someone in a grocery store, help children cross traffic lights, be a friendly companion, act as a guide dog, or help elders in need around the house. These robots are not performing tedious tasks on a daily basis, but are to be interactive with humans, and socialize with them. For this to happen, robots need to sense and interpret human interaction, their gestures and body language.
+
 A human expressing a gesture through body language, goes through a sequence of observable postures. These observations can be discretized to extract a smaller subset of postures through which a gesture can be conveyed. Think of it as watching a movie. If we drop the frame-rate significantly we can still visually interpret the movie. The order in which each observation occurs is of importance, shifting the observation's order in the sequence would convey a completely different gesture. Expression of a gesture also varies from person to person, it also varies depending on the context that someone is experiencing.
 
 We introduce the problem of recognizing gestures from data obtained by a motion capture system. Many methods exists in recognizing gestures\cite{Yang_1994_329}, template-matching, dictionary lookup, statistical matching, neural networks, and ad hoc methods. Some techniques are widely applicable to various problems in gesture recognition while others are designed specifically to resolve a particular problem. Gesture recognition is considered to have stochastic properties\cite{Yang_1994_329}, as such a technique that uses the stochastic nature of the problem to its advantage would be of value.
@@ -40,16 +40,13 @@ A Hidden Markov Model (HMM) is defined as a doubly stochastic process with an un
 This report is an account of the experimental steps taken in using HMMs to recognize gestures in 3D motion captured data. For a full mathematical account of HMM, \citet{1165342} is a great source of information. The initial experiments focused on discovering the process involved in using HMMs to train and classify motion capture data. The later experiments focus on improving the performance of HMM to provide better results. Finally, we test the robustness of the HMM framework by using a different dataset than the one which was used to develop the framework.
 
 \section*{Outline}
-We introduce the overall gesture recognition process using HMMs in section \ref{sec:overllprocess}. Chapter \ref{sec:fwc} outlines the main components of the process whose considerations are invaluable in making decisions to improve gesture recognition performance. Chapter \ref{sec:results} discusses the results of the experiments conducted, and analyzes the various pitfalls encountered in building a system to achieve a 63\% recongition rate.
+We introduce the overall gesture recognition process using HMMs in section \ref{sec:overllprocess}. Chapter \ref{sec:fwc} outlines the main components of the process whose considerations are invaluable in making decisions to improve gesture recognition performance. Chapter \ref{sec:results} discusses the results of the experiments conducted, and analyzes the various pitfalls encountered in building a system to achieve a 63\% recongition rate from data sets in literature, and a 75-80\% recognition rate on a custom experiment performed using a XBox Kinect.
+
+\chapter{Gesture Recognition with HMM}\label{sec:overllprocess}
+We discuss the details of gesture recognition process using HMM in this chapter. This will put the reader in prespective of the various parts that work together in using HMMs for gesture recognition. HMM as a machine learning algorithm is pretty straight forward in application. Due to the generality of the algorithm it can be applied to any problem, in any domain, that can be translated into entities that a HMM process can take advantage of.
 
 \section{Works consulted}
-\subsection{Gesture recognition}
-\subsection{Gesture recognition in social robotics}
-\subsection{Gesture recognition with HMM}
-\subsubsection{Dataset}
-\subsubsection{Feature vector}
-\subsubsection{HMM}
-\subsubsection{Retraining}
+\citet{Fong2003143} conduct a survey of socially-interactive robots providing us with sufficient history and knowledge into the applications such robots. The paper also discusses the various design considerations such as robot embodiment, emotion sensing, emotion as a control mechanism, speech, facial expressions, body language, personality traits, and the various forms of human-oriented preception. A key point is noted in the paper in regards to having meaningful interactions with humans. Social robots must preceive the world as humans do, that is sensing and interpreting the same phenomena that humans observe \cite{Fong2003143}. It is identified that perceptual abilities similar to humans are necessary in addition to the sensing capabilities required for conventional functions. People tracking, speech recognition, gesture recognition and facial preception are some of the human-oriented perceptual abilities listed.
 
 The purpose of the experiment was to implement and evaluate the use of HMMs to train and classify gestures in motion captured data. HMMs can be applied to any problem where spatio-temporal variability is of importance. As such, the implementation of HMM is straight forward besides the overhead in implementing the algorithms necessary to train the HMM, and calculate outcomes. This means that HMMs can virtually be applied to any domain; applications include speech recognition\cite{54527}, hand writing recognition\cite{541414}, data mining\cite{5602641}, image classification\cite{4379516}, and of course gesture recognition\cite{4154947}. 
 
@@ -59,10 +56,7 @@ Feature vectors improve the recognition accuracy of the HMM in a specific proble
 
 The initial experiments were performed on the data set from \citet{Kleinsmith:2006:CDR:1221613.1222203}. And a final experiment was conducted on a different data set from \citet{KlEINSMITH_Bianchi-Berthouze_Steed_2011}. Though they employed neural networks as the machine learning framework to train and recognize gestures, their work was significant in understanding proper selection of feature vectors. They also detail the use of 3D motion capture data directly for affective posture recognition. Their works demonstrate how an emotion is conveyed by different cultures, and the various emotions that people portray when they are performing a task naturally. 
 
-The bibliography section of the report includes many more works that were consulted to gather knowledge about gesture recognition and HMMs in general.
-
-\chapter{Gesture Recognition with HMM}\label{sec:overllprocess}
-We discuss the details of gesture recognition process using HMM in this chapter. This will put the reader in prespective of the various parts that work together in using HMMs for gesture recognition. HMM as a machine learning algorithm is pretty straight forward in application. Due to the generality of the algorithm it can be applied to any problem, in any domain, that can be translated into entities that a HMM process can take advantage of.
+We also looked into some literature regarding gesture classification using means other than HMMs. \citet{Caridakis201052} take advantage of the clustering properties of Self-Organizing Maps for gesture recognition; as self-organizing feature maps lead themselves well to model spatio-temportal information extracted from images. \citet{Oz20111204} use artificial netural networks for gesture recognition in American Sign Language, where data is captured via a sensory glove. The bibliography section of the report includes many more works that were consulted to gather knowledge about gesture recognition and HMMs in general. 
 
 \section{Terms}
 For clarity we establish some terms and their relative meaning, strictly as we have used them in this report and in our experiments.
@@ -83,7 +77,7 @@ We call the data captured from the motion capture system a \texttt{gesture}, whi
 \end{figure}
 
 \section{Data set}
-As in any machine learning algorithm, a data set plays an important role in enabling the algorithm to train, classify and re-train. There are two types of data set that can be used for gesture recognition, data captured through a video camera, and data captured through a 3D marker tracking system. Tracking human actions through a video camera (or a web camera) is the simplest of the two. The camera captures a sequence of images that is used to extract features later in the process. The sophistication, or the details, of the data captured is reliant on the camera itself. A hi-definition camera would capture more details versus a low definition camera, likewise a camera that is able to collect color data can provide additional details of the scene.
+As in any machine learning algorithm, a data set plays an important role in enabling the algorithm to train, classify and re-train. There are two basic ways throug which data can be captured for gesture recognition, data captured through a video camera, and data captured through a 3D marker tracking system. \citet{Morie200731} provide a summary of their experiments in a creating markerless visual tracking system inspired by the brain; for face and object recognition. The camera captures a sequence of images that is used to extract features later in the process. The sophistication, or the details, of the data captured is reliant on the camera itself. A hi-definition camera would capture more details versus a low definition camera, likewise a camera that is able to collect color data can provide additional details of the scene.
 
 A 3D marker tracking system is a sophisticated derivative of using a video camera to capture data. Rather than capture details of the scene, the system captures movements of an actor's skeletal features. This is done by having many video cameras positioned at significant locations. These are then used to track markers on an actor wearing a specialized suit. Markers are positioned appropriately at significant locations such as wrists, knees, head, waist, spine, hips and many more. An algroithm then interprets the data from the various cameras and transforms them into position coordinates as it corrosponds to the human sekeletal frame. In essense, a single frame of this transformed data is a posture as defined earlier. This data can be further processed into rotation angles, and euler angles corresponding to a datum, as necessary.
 
@@ -395,7 +389,7 @@ Table \ref{tab:dim3statmoredata} lists the confusion matrix for which there were
 Table \ref{tab:dimemocomp} displays a confusion matrix, recognition rate and the number of states used for each emotion's HMM. We note that when comparing two emotions to each other an average of 15-20\% misclassification rate exists. Table \ref{tab:dimemocomp} also displays improvements on recognition rate when comparing some emotions, for example \texttt{fear} vs. \texttt{sad}. Training the HMMs with 4 states fear and 3 states for sad, a recognition rate of 77\% is achieved, but result is improved upon by training both HMMs with 4 states. Optimization of HMMs for states is an important step in improving the recognition rate. This property not only affects how well the respective gestures are classified (a sad gesture classfied as a sad emotion), but also how other gestures are classified against it (a fear gesture classified as a sad emotion). Improving a classification rate for one gesture might affect the classification rate of another gesture. Thus when one or more emotions are involved, as in tables \ref{tab:dim4statefear} or \ref{tab:dim3statmoredata}, a balance of states between each individual HMM needs to be achieved.
 
 \section{Measured Performance}
-Table \ref{tab:timedperformance} displays the measured performance of the various components of the framework over time for two different training data sizes. In general, the training data size and the overhead seen are directly correlated.
+It is insightful to look into the overhead experienced by each component of the HMM process. There are two areas where the overhead is significant, when creating a codebook and when training a HMM. Other parts of the process such as extracting feature vectors from the inputs, or even classifying HMM recognition experience very little overhead. Table \ref{tab:timedperformance} displays the measured performance of the various components of the framework over time. In general, the training data size and the overhead seen are directly correlated. The preprocessing, feature vector extraction, codebook creation and HMM training are \textit{one time} overheads, during the setup phase. When a single new data needs to be trained on top of the existing models, the overhead is very minimal. The performances were measured on a Intel i7, Quad Core CPU, with 8 GB memory.
 
 \begin{table*}[htbp]
 	\centering
@@ -405,15 +399,32 @@ Table \ref{tab:timedperformance} displays the measured performance of the variou
         Feature Vector Extraction 	&	1.5s & 30.5s     & 44.2s    \\ \hline
         Codebook (k-means)  		& 1s & 25.0s     & 61.2s    \\ \hline
         HMM Training (total) 		&1s & 74.9s     & 37.6s    \\ \hline
-        HMM Recognition (total) 	& - & 1.4s     & 0.47 s    \\ \hline
+        HMM Recognition (total) 	& - & 1.4s     & 1.77 s    \\ \hline
 		\end{tabular}
 	\caption{Timed performance}
 	\label{tab:timedperformance}
 \end{table*}
-The overhead of the feature vector extraction process is linear in nature, and a straight forward process. It is reliant on the complexity of extracting specific features. The overhead of the codebook creation using the k-means algorithm depends on the structure, on the number of feature vectors, and the dimension of the feature vectors. There are works performed in the literature that employs faster techniques to k-means clustering. The overhead of the HMM training is the total training time for all four emotions. Individually, the training of each emotion depends on the observation sequence pattern and the rate of convergence of the HMM probability matrices. For a large training data set the training HMMs might converge faster than when a smaller data size is used as more training data is provided.  Though this relationship is not linear and not guaranteed. HMM recognition time is for the total testing data set, which was 93 and 30 for their respective training data set sizes of 90 and 152.
 
-The preprocessing, feature vector extraction, codebook creation and HMM training are \textit{one time} overheads, during the setup phase. When a single new data needs to be trained on top of the existing models, the overhead is very minimal. The performances were measured on a Intel i7, Quad Core CPU, with 8 GB memory.
+The overhead of the feature vector extraction process is linear in nature, and is very dependent on the process itself. If we are given a data set with spatial positions then algorithmically it is easy to calculate or extract feature vectors from it. If we are given a data set with static images from a camera then the time taken to process the image, isolate human features, calculate depth and positions becomes significant. The overhead of the codebook creation using the k-means algorithm depends on the length of the feature vector, and the number of feature vectors. As the k-means is an optimization algorithm that iteratively moves data around till the best cluster of data is found, it also depends on the values of the feature vector. 
 
+Figure \ref{fig:codebookoverhead1} shows a graphical comparison of the codebook creation time versus the number of features in the feature vector. The amount of time needed to create the codebook using the k-means algorithm increases linearly as the size of the feature vector grows. Figure \ref{fig:codebookoverhead2} shows an alternative comparison of codebook creation time with the number of feature vectors to cluster. Similar to the other graph, the amount of time needed to create the codebook increases linearly as the number of feature vectors to cluster is increased.
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=1.0\textwidth]{codebookoverhead.pdf}
+	\caption{Graph of codebook creation time versus number of features in a feature vector}
+	\label{fig:codebookoverhead1}
+\end{figure}
+
+
+\begin{figure}[htbp]
+	\centering
+		\includegraphics[width=1.0\textwidth]{codebookoverhead2.pdf}
+	\caption{Graph of codebook creation time versus number of feature vectors to cluster}
+	\label{fig:codebookoverhead2}
+\end{figure}
+
+
+Table \ref{tab:timedperformance} also lists the overhead incurred for HMM training. This is the total training time for all four emotions. Individually, the training of each emotion depends on the observation sequence pattern and the rate of convergence of the HMM probability matrices. 
 
 \section{Unacted data set}
 The experiments that have been discussed until now were performed on an acted data set, where the actor acting the gesture was asked to specifically demonstrate an emotion. A test was also run on an unacted data set from \citet{KlEINSMITH_Bianchi-Berthouze_Steed_2011}. In this data set the actor was asked to perform a task, during this task various emotions were extracted and classified. The idea was to capture the natural essence of an emotion. The gestures were classified into three categories, \texttt{positive}, \texttt{negative}, and \texttt{neutral}. A \texttt{positive} emotion consisted of content, excited, motivated, happy or victory gestures, while a \texttt{negative} emotion consisted of defeated, give up, sad, angry, and frustrated gestures. All other gestures were considered \texttt{neutral}. Even for a human observer it was difficult to label the data set with one of the emotions, thus training a HMM to detect and recognize such gestures would be a test in robustness.
@@ -488,9 +499,23 @@ The second test run involved shifting more data from the test data set to the tr
 \end{table*}
 Out of the 15 gestures, 12 were classified correctly giving us a recognition rate of 80\%. We notice that the shakefist and surprised gesture recognition has improved significantly from the first run. This leads us to the obvious conclusion that having a lack of necessary training data will result in overfitting of the observation sequence probabilites in a HMM. 
 
-\subsection{Retraining and noise variations}
-We perform one last experiment with this data set as it provides us with a great opportunity to retrain an existing HMM
-Overall, this result tells us the sucess of the experiment in implementing it for use with Xbox Kinect. Assuming we provide sufficient training for each emotion or gesture that needs to be classified correctly, HMMs are quite robust to variations, very easy for re-training and adaptation.
+\subsection*{Noise variations and retraining}
+We perform one last experiment with this data set to see how the recognition results are affect with noise. The data set was divided into two, one of which was modified with noisy values. This simulates a random noise disturbance in the motion capture system. Both sets of data were shuffled and re-divided into test and training data sets randomly. This time we retraind the existing HMMs that were trained for the previous test run. The retraining process is similar to the training process, except instead of the random initial probability matrices, we start with an existing probability matrix from the previous run. Similar to the last experiment, 31 gestures were used for training and 15 gestures were used for testing. Table \ref{tab:xboxdim3state3} displays the confusion matrix for this test run. In all the test run achieved a correct classification rate of 73\%. 
+\begin{table*}[htbp]
+	\centering
+		\begin{tabular}{|l|c|c|c|c|}
+		\hline
+             & Shrug & Surprised & Thinking & Shakefist \\ \hline
+        Shrug 		& 4     & 0    & 0     & 0   \\ \hline
+        Surprised 	& 0     & 2    & 2     & 0   \\ \hline
+        Thinking 	& 0     & 1    & 3     & 0  \\ \hline
+        Shakefist   & 1     & 0    & 0     & 2  \\
+		\hline
+		\end{tabular}
+	\caption{Confusion matrix for 3-state HMMs with noisy Xbox Kinect data set.}
+	\label{tab:xboxdim3state3}
+\end{table*}
+To improve the missclassifications we would need to provide more training data, or work on optimizing the HMM parameters, such as the probability transition matrix, emission probability matrix, or the number of states allowed in a gesture. Overall, these results tells us of the success of the experiment in implementing it for use with Xbox Kinect. Assuming we provide sufficient training for each emotion or gesture that needs to be classified, HMMs are quite robust to variations, very easy for re-training and adaptation.
 
 \chapter{Conclusion}\label{sec:conclusion}
 In this report, we have demonstrated the application of Hidden Markov Models (HMMs) to recognize gestures in motion captured data. The existing works demonstrate how HMMs are very applicable in the field of gesture recognition because of their ability to train and recognize over spatio-temporal data. We start by discussing the process involved in using HMMs for gesture recognition. Then we discuss in detail some of the components related to the architecture of the over all recognition process. 

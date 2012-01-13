@@ -1,4 +1,4 @@
-\begin{thebibliography}{24}
+\begin{thebibliography}{28}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
@@ -26,6 +26,17 @@ Jason Lee and Willy Wong.
 \newblock ISSN 0340-1200.
 \newblock URL \url{http://dx.doi.org/10.1007/s00422-004-0516-0}.
 \newblock 10.1007/s00422-004-0516-0.
+
+\bibitem[Fong et~al.(2003)Fong, Nourbakhsh, and Dautenhahn]{Fong2003143}
+Terrence Fong, Illah Nourbakhsh, and Kerstin Dautenhahn.
+\newblock A survey of socially interactive robots.
+\newblock \emph{Robotics and Autonomous Systems}, 42\penalty0 (3–4):\penalty0
+  143 -- 166, 2003.
+\newblock ISSN 0921-8890.
+\newblock \doi{10.1016/S0921-8890(02)00372-X}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S092188900200372X}.
+\newblock <ce:title>Socially Interactive Robots</ce:title>.
 
 \bibitem[Picone(1990)]{54527}
 J.~Picone.
@@ -144,14 +155,53 @@ Andrea Kleinsmith, P.~Ravindra De~Silva, and Nadia Bianchi-Berthouze.
 \newblock \doi{10.1016/j.intcom.2006.04.003}.
 \newblock URL \url{http://dl.acm.org/citation.cfm?id=1221613.1222203}.
 
-\bibitem[KlEINSMITH et~al.(2011)KlEINSMITH, Bianchi-Berthouze, and
+\bibitem[Kleinsmith et~al.(2011)Kleinsmith, Bianchi-Berthouze, and
   Steed]{KlEINSMITH_Bianchi-Berthouze_Steed_2011}
-A~KlEINSMITH, N~Bianchi-Berthouze, and A~Steed.
+A~Kleinsmith, N~Bianchi-Berthouze, and A~Steed.
 \newblock Automatic recognition of non-acted affective postures.
 \newblock \emph{IEEE transactions on systems man and cybernetics Part B
   Cybernetics a publication of the IEEE Systems Man and Cybernetics Society},
   41\penalty0 (4):\penalty0 1--12, 2011.
 \newblock URL \url{http://discovery.ucl.ac.uk/735772/}.
+
+\bibitem[Caridakis et~al.(2010)Caridakis, Karpouzis, Drosopoulos, and
+  Kollias]{Caridakis201052}
+George Caridakis, Kostas Karpouzis, Athanasios Drosopoulos, and Stefanos
+  Kollias.
+\newblock Somm: Self organizing markov map for gesture recognition.
+\newblock \emph{Pattern Recognition Letters}, 31\penalty0 (1):\penalty0 52 --
+  59, 2010.
+\newblock ISSN 0167-8655.
+\newblock \doi{10.1016/j.patrec.2009.09.009}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0167865509002372}.
+
+\bibitem[Oz and Leu(2011)]{Oz20111204}
+Cemil Oz and Ming~C. Leu.
+\newblock American sign language word recognition with a sensory glove using
+  artificial neural networks.
+\newblock \emph{Engineering Applications of Artificial Intelligence},
+  24\penalty0 (7):\penalty0 1204 -- 1213, 2011.
+\newblock ISSN 0952-1976.
+\newblock \doi{10.1016/j.engappai.2011.06.015}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0952197611001230}.
+\newblock <ce:title>Infrastructures and Tools for Multiagent
+  Systems</ce:title>.
+
+\bibitem[Morie et~al.(2007)Morie, Miyamoto, and Hanazawa]{Morie200731}
+Takashi Morie, Hiroyuki Miyamoto, and Akitoshi Hanazawa.
+\newblock Brain-inspired visual processing for robust gesture recognition.
+\newblock \emph{International Congress Series}, 1301\penalty0 (0):\penalty0 31
+  -- 34, 2007.
+\newblock ISSN 0531-5131.
+\newblock \doi{10.1016/j.ics.2006.12.010}.
+\newblock URL
+  \url{http://www.sciencedirect.com/science/article/pii/S0531513106006479}.
+\newblock <ce:title>Brain-Inspired IT III. Invited and selected papers of the
+  3rd International Conference on Brain-Inspired Information Technology
+  “BrainIT 2006” held in Hibikino, Kitakyushu, Japan between 27 and 29
+  September 2006</ce:title>.
 
 \bibitem[Werghi and Xiao(2002)]{Werghi:2002:RHB:874061.875439}
 Naoufel Werghi and Yijun Xiao.
